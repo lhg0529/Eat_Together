@@ -1,0 +1,12 @@
+.nav {
+  display: grid;
+  width: 100%;
+  height: 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-align: center;
+  align-items: center;
+  position: fixed;
+  flex: 1;
+  bottom: 0px;
+  border-top: solid 1px #ccc;
+}

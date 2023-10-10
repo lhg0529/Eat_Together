@@ -1,15 +1,12 @@
 import React from 'react';
 import '../styles/ETMain.css';
+import ETHeader from '../components/ETHeader';
+import ETNav from '../components/ETNav';
 
 function ETMain() {
   return (
     <div className="ETMain">
-      <header>
-        로고
-        <div className="input-area">
-          <input type="text"></input>
-        </div>
-      </header>
+      <ETHeader />
       <hr />
       <div className="crs">
         <div>이미지1</div>
@@ -22,12 +19,7 @@ function ETMain() {
         <div>room1</div>
         <div>room2</div>
       </div>
-      <div className="nav">
-        <span class="material-symbols-outlined">format_list_bulleted</span>
-        <span class="material-symbols-outlined">search</span>
-        <span class="material-symbols-outlined">event_note</span>
-        <span class="material-symbols-outlined">person</span>
-      </div>
+      <ETNav />
     </div>
   );
 }
