@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ETHeader from '../components/ETHeader';
 import '../styles/ETSearch.css';
 import cat from '../img/cat.jpg';
 import ETPlaceItem from '../components/ETPlaceItem';
+import ETNav from '../components/ETNav';
 
 function ETSearch() {
+  const categori = ['한식', '양식', '일식', '중식'];
   const place = [
     {
       UID: 0,
@@ -21,11 +23,27 @@ function ETSearch() {
       GridY: 0.0,
     },
   ];
+  const [isShow, setIsShow] = useState(false);
+  const containerStyle = {
+    display: `${isShow ? 'none' : 'contents'}`,
+  };
   return (
     <div>
       <ETHeader />
       <section className="search-section">
-        <div className="categori">카테고리 v</div>
+        <div
+          className="categori"
+          onClick={() => {
+            setIsShow(!isShow);
+          }}
+        >
+          카테고리 v
+          <div className={`categori-acodian ${isShow ? '' : 'acodian-open'}`}>
+            {categori.map((e, i) => {
+              return <div className="categori-item">{e}</div>;
+            })}
+          </div>
+        </div>
         <div className="search-container">
           <span class="material-symbols-outlined search-icon">search</span>
           <input className="search-place-input" type="text"></input>
@@ -41,6 +59,7 @@ function ETSearch() {
           />
         );
       })}
+      <ETNav />
     </div>
   );
 }
