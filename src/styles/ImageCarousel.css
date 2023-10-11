@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  width: 360px; /* 원하는 가로 크기로 설정 */
+  width: 500px; /* 원하는 가로 크기로 설정 */
   height: 200px;
   position: relative;
 }
@@ -19,6 +19,7 @@
 }
 
 .image-container img {
+  object-fit: fill;
   /* max-width: 100%; */
   width: 100%;
   height: auto;
