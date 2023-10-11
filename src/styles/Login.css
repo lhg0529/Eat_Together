@@ -50,9 +50,10 @@ input {
   text-align: center;
 }
 
-.login-btn, .register-btn {
+.login-btn, .register-page-btn {
   margin: 10px 0;
   padding: 10px 20px;
+  width: 150px;
   border: none;
   border-radius: 10px;
   background-color: #FF3D00;
@@ -60,6 +61,7 @@ input {
   cursor: pointer;
   font-size: 15px;
   font-weight: 1000;
+  text-align: center;
 }
 
 /* .login-btn:hover, .register-btn:hover {

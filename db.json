@@ -1,25 +1,32 @@
 {
   "users": [
     {
-      "name": "이현기",
-      "nickname": "가나다라",
-      "username": "lhg0529",
-      "password": "lhg0529",
+      "name": "이름",
+      "nickname": "닉넴",
+      "username": "dldkd24",
+      "password": "asdf1234",
       "id": 1
     },
     {
-      "name": "이현기",
-      "nickname": "가나다라",
-      "username": "lhg0529",
-      "password": "lhg0529",
+      "name": "이름",
+      "nickname": "ㅇㄹ",
+      "username": "lhg123",
+      "password": "lhg12345",
       "id": 2
     },
     {
-      "name": "",
-      "nickname": "",
-      "username": "",
-      "password": "",
+      "name": "성수수",
+      "nickname": "빵빵이",
+      "username": "tjdtn123",
+      "password": "tjdtn123123",
       "id": 3
+    },
+    {
+      "name": "김천",
+      "nickname": "kinc",
+      "username": "kimchun1",
+      "password": "1q2w3e4r",
+      "id": 4
     }
   ],
   "place": [],

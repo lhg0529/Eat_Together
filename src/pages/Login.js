@@ -49,7 +49,7 @@ function Login() {
           ></Route>
         </Routes>
         <Link to="../pages/Register">
-          <button className="register-btn">회원가입</button>
+          <button className="register-page-btn">회원가입</button>
         </Link>
       </div>
     </div>
