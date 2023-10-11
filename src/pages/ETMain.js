@@ -12,6 +12,7 @@ import cat3 from '../img/cat3.jpg';
 function ETMain() {
   // 프롭으로 넘겨주기 위한 배열
   const images = [cat, cat2, cat3];
+  // 더미데이터
   const roomList = [
     {
       UID: 0,
