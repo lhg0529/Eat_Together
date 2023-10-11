@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Demo from './pages/Demo';
 import ETMain from './pages/ETMain';

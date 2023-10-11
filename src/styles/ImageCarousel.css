@@ -1,0 +1,43 @@
+.simple-image-carousel {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 360px; /* 원하는 가로 크기로 설정 */
+  height: 200px;
+  position: relative;
+}
+
+.image-container {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease; /* 슬라이딩 효과 적용 */
+
+  /* 추가한 스타일 */
+  position: relative;
+  height: auto;
+  white-space: nowrap;
+}
+
+.image-container img {
+  /* max-width: 100%; */
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+.btn-left,
+.btn-right {
+  position: absolute;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 20px;
+  z-index: 1;
+}
+.btn-left {
+  left: 0;
+}
+.btn-right {
+  right: 0;
+}

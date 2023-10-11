@@ -3,7 +3,19 @@
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
-
+.crs {
+  position: relative;
+}
+.Dumy-Img {
+  background-color: tomato;
+  width: 1200px;
+  height: 200px;
+}
 .ETMain {
   background-color: blanchedalmond;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: 400;
 }
