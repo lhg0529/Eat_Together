@@ -1,0 +1,24 @@
+.search-section {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: 0 10px;
+}
+.categori {
+  border: solid 1px #888;
+  padding: 5px;
+  border-radius: 5px;
+}
+.search-container {
+  flex: 1;
+  margin: 0 10px;
+  position: relative;
+  display: flex;
+  border: solid 1px #ccc;
+  padding: 5px;
+  border-radius: 20px;
+}
+.search-place-input {
+  flex: 1;
+  border: none;
+}

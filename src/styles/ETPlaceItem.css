@@ -1,0 +1,23 @@
+.place-item-container {
+  border: solid 1px #ccc;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+}
+.place-name {
+  font-size: 25px;
+  padding: 10px;
+}
+.place-address {
+  font-size: 15px;
+  color: #888;
+  padding: 10px;
+}
+.image-container {
+  width: 80px;
+  height: 80px;
+}
+.image-container img {
+  margin: 5px;
+  border-radius: 5px;
+}
