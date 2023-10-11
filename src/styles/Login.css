@@ -1,0 +1,67 @@
+.outer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;  /* 뷰포트의 전체 높이 */
+  width: 100vw;   /* 뷰포트의 전체 너비 */
+  background-color: #FFEBE0;  /* 배경색 */
+}
+
+
+.login-container {
+  background-color: transparent;
+  /* height: 932px;  
+  width: 430px;    */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-text {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF3D00;
+}
+
+.logo {
+  margin: 20px 0;
+}
+
+.logo img {
+  width: 150px; /* 로고의 크기를 조절하려면 이 값을 변경하세요. */
+  height: auto;
+  border: none; /* 테두리 제거 */
+  background-color: transparent; /* 배경색을 투명하게 */
+}
+
+input {
+  margin: 5px 0;
+  padding: 10px;
+  width: 200px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.login-btn, .register-btn {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #FF3D00;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 1000;
+}
+
+/* .login-btn:hover, .register-btn:hover {
+  background-color: #FF3D00;
+} */

@@ -1,5 +1,27 @@
 {
-  "user": [],
+  "users": [
+    {
+      "name": "이현기",
+      "nickname": "가나다라",
+      "username": "lhg0529",
+      "password": "lhg0529",
+      "id": 1
+    },
+    {
+      "name": "이현기",
+      "nickname": "가나다라",
+      "username": "lhg0529",
+      "password": "lhg0529",
+      "id": 2
+    },
+    {
+      "name": "",
+      "nickname": "",
+      "username": "",
+      "password": "",
+      "id": 3
+    }
+  ],
   "place": [],
   "room": [],
   "joiner": []
