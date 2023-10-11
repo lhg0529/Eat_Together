@@ -1,0 +1,31 @@
+.ETMain-header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+.ETMain-Logo {
+  width: 60px;
+  height: 60px;
+}
+.input-area {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  justify-content: center;
+  background-color: white;
+  height: 40px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: solid 1px #ccc;
+}
+.search {
+  margin: 4px 15px 4px 0px;
+  width: 100%;
+  border: none;
+}
+.search-icon {
+  text-align: center;
+}

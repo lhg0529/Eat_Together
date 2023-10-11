@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.crs {
+  position: relative;
+}
+.ETMain {
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: 400;
+}
+.room-list,
+.room-item-container {
+  font-family: 'Jeju Gothic';
+}
+.room-list {
+  margin: 10px;
+}
+.room-item-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  border: solid 1px #ccc;
+  margin: 5px;
+}
+
+.room-info-container {
+}
+.join-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.square-button-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.square-button {
+  width: 50px;
+  height: 50px;
+  background-color: #ff3d00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+/* 버튼에 호버 효과 추가 (선택사항) */
+.square-button:hover {
+  background-color: #c22d00;
+}
+.room-name {
+  margin: 5px;
+  font-size: 25px;
+}
+.place-id,
+.room-date {
+  margin: 5px;
+  font-size: 12px;
+  color: #888;
+}
