@@ -2,101 +2,11 @@
   "users": [
     {
       "name": "이름",
-      "nickname": "닉넴",
-      "username": "dldkd24",
-      "password": "asdf1234",
-      "id": 1
-    },
-    {
-      "name": "이름",
-      "nickname": "ㅇㄹ",
-      "username": "lhg123",
-      "password": "lhg12345",
-      "id": 2
-    },
-    {
-      "name": "성수수",
-      "nickname": "빵빵이",
-      "username": "tjdtn123",
-      "password": "tjdtn123123",
-      "id": 3
-    },
-    {
-      "name": "김천",
-      "nickname": "kinc",
-      "username": "kimchun1",
-      "password": "1q2w3e4r",
-      "id": 4
-    },
-    {
-      "name": "이름",
       "nickname": "닉네임",
       "username": "lhg0529",
       "password": "qlalf1234",
-      "id": 5
-    },
-    {
-      "name": "이름",
-      "nickname": "닉네임",
-      "username": "dkdlel123",
-      "password": "dkdlel123",
-      "id": 6
-    },
-    {
-      "name": "이름",
-      "nickname": "닉네임",
-      "username": "dkdlel1234",
-      "password": "dkdlel123",
-      "id": 7
-    },
-    {
-      "name": "이름",
-      "nickname": "닉네임",
-      "username": "dkdlel12345",
-      "password": "dkdlel123",
-      "id": 8
-    },
-    {
-      "name": "이름",
-      "nickname": "닉네임",
-      "username": "dkdlel123456",
-      "password": "dkdlel123",
-      "id": 9
-    },
-    {
-      "name": "이름",
-      "nickname": "닉네임",
-      "username": "dkdlel14567",
-      "password": "dkdlel123",
-      "id": 10
-    },
-    {
-      "name": "이름",
-      "nickname": "닉네임",
-      "username": "dkdlel1567",
-      "password": "dkdlel123",
-      "id": 11
-    },
-    {
-      "name": "이름",
-      "nickname": "닉네임",
-      "username": "dkdlel12",
-      "password": "qlalf1234",
-      "id": 12
-    },
-    {
-      "name": "이름",
-      "nickname": "닉네임",
-      "username": "dkdlel125",
-      "password": "qlalf1234",
-      "id": 13
-    },
-    {
-      "name": "이름",
-      "nickname": "닉넴",
-      "username": "dkdlel128",
-      "password": "qlalf1234",
-      "id": 14
+      "admin": false,
+      "id": 1
     }
   ],
   "place": [

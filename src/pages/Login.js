@@ -49,9 +49,11 @@ function Login() {
       <div className="login-container">
         <p className="welcome-text">함께 먹는 즐거움</p>
         <h1>Eat Together</h1>
-        <div className="logo">
-          <img src={logo} alt="ET Logo" />
-        </div>
+        <Link to="/ETMain">
+          <div className="logo">
+            <img src={logo} alt="ET Logo" />
+          </div>
+        </Link>
         <input type="text" placeholder="아이디" value={username} onChange={(e) => setUsername(e.target.value)} />
         <input type="password" placeholder="비밀번호" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button className="login-btn" onClick={handleLogin}>로그인</button>
