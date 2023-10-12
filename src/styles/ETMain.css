@@ -13,10 +13,6 @@ h3 {
   font-size: 15px;
   font-weight: 400;
 }
-.room-list,
-.room-item-container {
-  font-family: 'Jeju Gothic';
-}
 .room-list {
   margin: 10px;
 }
