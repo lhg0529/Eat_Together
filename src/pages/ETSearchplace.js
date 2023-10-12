@@ -40,6 +40,8 @@ function ETSearchplace() {
       <Kakaomap
         address={thisPlace.Address}
         placeName={thisPlace.Placename}
+        y={thisPlace.GridY}
+        X={thisPlace.GridX}
       ></Kakaomap>
       <ETNav></ETNav>
     </div>

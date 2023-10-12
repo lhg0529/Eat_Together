@@ -18,6 +18,7 @@ function Kakaomap(props) {
         const container = document.getElementById('map');
         const options = {
           center: new window.kakao.maps.LatLng(37.5665, 126.978), // 서울의 좌표 예시
+          // center: new window.kakao.maps.LatLng(props.x, props.y), // 서울의 좌표 예시
           level: 3,
         };
 
