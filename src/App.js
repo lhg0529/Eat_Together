@@ -13,16 +13,14 @@ function App() {
       <Routes>
         <Route path="/" element={<h1>asdf</h1>}></Route>
         <Route path="/Demo" element={<Demo></Demo>}></Route>
-        <Route path="pages/Login" element={<Login></Login>}></Route>
-        <Route path="pages/Register" element={<Register></Register>}></Route>
+        <Route path="/Login" element={<Login></Login>}></Route>
+        <Route path="/Register" element={<Register></Register>}></Route>
         <Route path="/ETMain" element={<ETMain />}></Route>
         <Route path="/ETSearch" element={<ETSearch />}></Route>
         <Route path="/ETSearch/:key1" element={<ETSearchplace />}></Route>
       </Routes>
       <Link to="/Demo">데모 페이지 표시</Link>
-      <p>
-        <Link to="/pages/Login">로그인 페이지 이동</Link>
-      </p>
+      <p><Link to="/Login">로그인 페이지 이동</Link></p>
     </div>
   );
 }

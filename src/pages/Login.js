@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import '../styles/Login.css';
-import logo from '../images/ET_logo.png';
-import Register from '../pages/Register';
-import axios from 'axios';
+
+import React, { useState, useEffect } from "react";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import "../styles/Login.css";
+import logo from "../img/ET_Logo.png";
+import Register from "./Register";
+import axios from "axios";
+import ETMain from "./ETMain";
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setIsLoggedIn(true);
+      
+    }
+  }, []);
 
   function handleLogin() {
     // db.json에서 사용자 정보를 가져옵니다.
@@ -20,8 +32,10 @@ function Login() {
         );
 
         if (user) {
-          alert('로그인 성공');
-          // TODO: 여기에 로그인 후의 로직 추가
+          alert("로그인 성공");
+          localStorage.setItem("user", JSON.stringify(user)); //로컬 스토리지에 사용자 정보 저장
+          setIsLoggedIn(true);
+          navigate("/ETMain");
         } else {
           alert('로그인 실패');
         }
@@ -36,31 +50,25 @@ function Login() {
       <div className="login-container">
         <p className="welcome-text">함께 먹는 즐거움</p>
         <h1>Eat Together</h1>
-        <div className="logo">
-          <img src={logo} alt="ET Logo" />
-        </div>
-        <input
-          type="text"
-          placeholder="아이디"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="비밀번호"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="login-btn" onClick={handleLogin}>
-          로그인
-        </button>
+        <Link to="/ETMain">
+          <div className="logo">
+            <img src={logo} alt="ET Logo" />
+          </div>
+        </Link>
+        <input type="text" placeholder="아이디" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input type="password" placeholder="비밀번호" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button className="login-btn" onClick={handleLogin}>로그인</button>
         <Routes>
           <Route
-            path="../pages/Register"
+            path="/Register"
             element={<Register></Register>}
           ></Route>
+          <Route
+            path="/ETMain"
+            element={<ETMain></ETMain>}
+          ></Route>
         </Routes>
-        <Link to="../pages/Register">
+        <Link to="/Register">
           <button className="register-page-btn">회원가입</button>
         </Link>
       </div>

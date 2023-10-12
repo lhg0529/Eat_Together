@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {Routes,Route, useNavigate} from 'react-router-dom';
 import '../styles/Register.css';
 import axios from 'axios';
+import Login from './Login';
+import FloatingLabelInput from '../components/FloatingLabelInput';
+
 
 function Register() {
   const [name, setName] = useState('');
@@ -9,6 +12,7 @@ function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
   async function handleRegister() {
      // 이름: 2~10자리, 한글 또는 영어만 가능
@@ -67,10 +71,12 @@ function Register() {
         nickname,
         username,
         password,
+        admin:false
       };
   
       await axios.post('http://localhost:3000/users', user);
       alert('회원가입 성공');
+      navigate("/Login");
 
     } catch (error) {
       console.error("Error during registration:", error);
@@ -82,38 +88,44 @@ function Register() {
     <div className="register-container">
       <h1>Eat Together에 오신 것을 환영합니다</h1>
       <h2>회원가입</h2>
-      <input
+      <FloatingLabelInput
         type="text"
-        placeholder="이름 (2~10자리, 한글 또는 영어만)"
+        label="이름 (2~10자리, 한글 또는 영어만)"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <input
+      <FloatingLabelInput
         type="text"
-        placeholder="닉네임 (2~12자리)"
+        label="닉네임 (2~12자리)"
         value={nickname}
         onChange={(e) => setNickname(e.target.value)}
       />
-      <input
+      <FloatingLabelInput
         type="text"
-        placeholder="아이디(영문, 숫자 조합 6~12자리)"
+        label="아이디(영문, 숫자 조합 6~12자리)"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <input
+      <FloatingLabelInput
         type="password"
-        placeholder="비밀번호(영문, 숫자 조합 8~16자리)"
+        label="비밀번호(영문, 숫자 조합 8~16자리)"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <input
+      <FloatingLabelInput
         type="password"
-        placeholder="비밀번호 확인"
+        label="비밀번호 확인"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
+      <Routes>
+          <Route
+            path="/Login"
+            element={<Login></Login>}
+          ></Route>
+      </Routes>
       <button className="register-btn" onClick={handleRegister}>가입하기</button>
-      <button className='cancel-btn'>취소</button>
+      <button className='cancel-btn' onClick={()=>navigate("/Login")}>취소</button>
     </div>
   );
 }

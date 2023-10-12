@@ -12,10 +12,52 @@
   margin: 10px 0;
 }
 
-.register-container input {
-  padding: 10px 15px;
+input {
+  padding: 10px 5px;
   margin: 10px 0;
   width: 250px;
+  border: none;
+  padding-top: 15px;    
+  padding-bottom: 15px;
+}
+input:focus {
+  outline-color: #FF3D00;
+  outline-offset: 0px;
+}
+
+.input-container {
+  position: relative;
+  width: 300px;
+  margin: 10px 0;
+}
+
+/* 기본 텍스트 크기 조절. font-size */
+.input-container input {
+  padding: 10px 5px;
+  margin: 0px 0;
+  width: 100%;
+  border: none;
+  padding-top: 20px;    
+  padding-bottom: 15px;
+  font-size: 14px;
+}
+.input-container input:focus {
+  outline-color: #FF3D00;
+  outline-offset: 0px;
+}
+
+/* 기본 라벨 텍스트 크기 설정 fontsize */
+.input-container label {
+  position: absolute;
+  left: 15px;
+  bottom: 18px;
+  transition: all 0.3s;
+  pointer-events: none;
+  font-size: 14px;
+}
+/* 활성 상태 텍스트 크기 설정 */
+.label-active {
+  transform: translateX(-25%) translateY(-100%) scale(0.5);
 }
 
 .register-btn,
