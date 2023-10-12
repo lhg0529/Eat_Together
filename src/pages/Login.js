@@ -1,13 +1,25 @@
-import React, { useState } from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Link, Route, Routes, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import logo from "../img/ET_Logo.png";
 import Register from "../pages/Register";
+import Demo from "./ETMain";
 import axios from "axios";
+import ETMain from "./ETMain";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setIsLoggedIn(true);
+      
+    }
+  }, []);
 
   function handleLogin() {
     // db.json에서 사용자 정보를 가져옵니다.
@@ -21,7 +33,9 @@ function Login() {
 
         if (user) {
           alert("로그인 성공");
-          // TODO: 여기에 로그인 후의 로직 추가
+          localStorage.setItem("user", JSON.stringify(user)); //로컬 스토리지에 사용자 정보 저장
+          setIsLoggedIn(true);
+          navigate("/ETMain");
         } else {
           alert("로그인 실패");
         }
@@ -46,6 +60,10 @@ function Login() {
           <Route
             path="../pages/Register"
             element={<Register></Register>}
+          ></Route>
+          <Route
+            path="../pages/ETMain"
+            element={<ETMain></ETMain>}
           ></Route>
         </Routes>
         <Link to="../pages/Register">

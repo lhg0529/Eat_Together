@@ -27,6 +27,13 @@
       "username": "kimchun1",
       "password": "1q2w3e4r",
       "id": 4
+    },
+    {
+      "name": "이름",
+      "nickname": "닉네임",
+      "username": "lhg0529",
+      "password": "qlalf1234",
+      "id": 5
     }
   ],
   "place": [
@@ -34,15 +41,15 @@
       "UID": 0,
       "Placename": "오리역 맥도날드",
       "Address": "경기 성남시 분당구 성남대로 45",
-      "GridX": 0.0,
-      "GridY": 0.0
+      "GridX": 0,
+      "GridY": 0
     },
     {
       "UID": 1,
       "Placename": "오리역 역전우동",
       "Address": "경기 성남시 분당구 성남대로 38 1층",
-      "GridX": 0.0,
-      "GridY": 0.0
+      "GridX": 0,
+      "GridY": 0
     }
   ],
   "room": [],
