@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import {Routes,Route, useNavigate} from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import '../styles/Register.css';
 import axios from 'axios';
 import Login from './Login';
 import FloatingLabelInput from '../components/FloatingLabelInput';
-
+import { JSON_SERVER } from '../JsonConfig';
 
 function Register() {
   const [name, setName] = useState('');
@@ -15,7 +15,7 @@ function Register() {
   const navigate = useNavigate();
 
   async function handleRegister() {
-     // 이름: 2~10자리, 한글 또는 영어만 가능
+    // 이름: 2~10자리, 한글 또는 영어만 가능
     const nameRegex = /^[가-힣a-zA-Z]{2,10}$/;
 
     // 닉네임: 2~12자리, 여백을 제외한 모든 문자 가능
@@ -26,11 +26,12 @@ function Register() {
 
     // 비밀번호: 영문, 숫자 조합 8~16자리
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
-    
-    
+
     //유효성 검사 시작
     if (!nameRegex.test(name)) {
-      alert('이름은 2~10자리로 한글 또는 영어만 입력해 주세요.          한글 자음, 모음 형태(ㅋㅋ, ㅜㅜ)는 불가');
+      alert(
+        '이름은 2~10자리로 한글 또는 영어만 입력해 주세요.          한글 자음, 모음 형태(ㅋㅋ, ㅜㅜ)는 불가'
+      );
       return;
     }
 
@@ -49,37 +50,36 @@ function Register() {
       return;
     }
 
-    if(password !== confirmPassword) {
+    if (password !== confirmPassword) {
       alert('비밀번호와 비밀번호 확인이 일치하지 않습니다');
       return;
     }
     // 아이디 중복 검사
-    
+
     try {
-          const usersResponse = await axios.get('http://localhost:3000/users');
-          console.log(usersResponse.data);
-          const users = usersResponse.data;
-          const existingUser = users.find(user => user.username === username);
-  
-          if (existingUser) {
-              alert('아이디 중복');
-              return; // 중복된 아이디가 있으면 회원가입 로직을 중단한다.
-          }   
-        //중복된 아이디가 없을 때의 회원가입 로직  
-        const user = {
+      const usersResponse = await axios.get(JSON_SERVER + '/users');
+      console.log(usersResponse.data);
+      const users = usersResponse.data;
+      const existingUser = users.find((user) => user.username === username);
+
+      if (existingUser) {
+        alert('아이디 중복');
+        return; // 중복된 아이디가 있으면 회원가입 로직을 중단한다.
+      }
+      //중복된 아이디가 없을 때의 회원가입 로직
+      const user = {
         name,
         nickname,
         username,
         password,
-        admin:false
+        admin: false,
       };
-  
-      await axios.post('http://localhost:3000/users', user);
-      alert('회원가입 성공');
-      navigate("/Login");
 
+      await axios.post(JSON_SERVER + '/users', user);
+      alert('회원가입 성공');
+      navigate('/Login');
     } catch (error) {
-      console.error("Error during registration:", error);
+      console.error('Error during registration:', error);
       alert('회원가입 실패');
     }
   }
@@ -119,13 +119,14 @@ function Register() {
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
       <Routes>
-          <Route
-            path="/Login"
-            element={<Login></Login>}
-          ></Route>
+        <Route path="/Login" element={<Login></Login>}></Route>
       </Routes>
-      <button className="register-btn" onClick={handleRegister}>가입하기</button>
-      <button className='cancel-btn' onClick={()=>navigate("/Login")}>취소</button>
+      <button className="register-btn" onClick={handleRegister}>
+        가입하기
+      </button>
+      <button className="cancel-btn" onClick={() => navigate('/Login')}>
+        취소
+      </button>
     </div>
   );
 }
