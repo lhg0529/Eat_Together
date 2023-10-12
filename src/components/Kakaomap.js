@@ -2,54 +2,49 @@ import React, { useEffect, useState } from 'react';
 
 function Kakaomap(props) {
   useEffect(() => {
-    const loadKakaoMap = () => {
-      // 이전에 생성한 kakaoMapScript 요소를 제거 (옵셔널)
-      const existingKakaoMapScript = document.querySelector(
-        'script[src^="//dapi.kakao.com"]'
-      );
-      if (existingKakaoMapScript) {
-        existingKakaoMapScript.remove();
-      }
+    // Kakao Map API 스크립트 비동기로 로드
+    const script = document.createElement('script');
+    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=a9ac4451e48e7caff6cfba9ac132754f&libraries=services&autoload=false`;
+    script.async = true;
+    document.head.appendChild(script);
 
-      const kakaoMapScript = document.createElement('script');
-      kakaoMapScript.async = true;
-      kakaoMapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=a9ac4451e48e7caff6cfba9ac132754f&autoload=false&libraries=services`;
-      document.head.appendChild(kakaoMapScript);
-
-      kakaoMapScript.addEventListener('load', () => {
-        window.kakao.maps.load(() => {
-          var container = document.getElementById('map');
-          var options = {
-            center: new window.kakao.maps.LatLng(33.450701, 126.570667),
-            level: 3,
-          };
-
-          var map = new window.kakao.maps.Map(container, options);
-          var geocoder = new window.kakao.maps.services.Geocoder();
-          if (props) {
-            geocoder.addressSearch(props.address, function (result, status) {
-              if (status === window.kakao.maps.services.Status.OK) {
-                var coords = new window.kakao.maps.LatLng(
-                  result[0].y,
-                  result[0].x
-                );
-                var marker = new window.kakao.maps.Marker({
-                  map: map,
-                  position: coords,
-                });
-                var infowindow = new window.kakao.maps.InfoWindow({
-                  content: `<div style="width:150px;text-align:center;padding:6px 0;">${props.placeName}</div>`,
-                });
-                infowindow.open(map, marker);
-                map.setCenter(coords);
-              }
-            });
-          }
-        });
-      });
+    // 스크립트 로드 완료 시 초기화 함수 호출
+    script.onload = () => {
+      initializeKakaoMap();
     };
 
-    loadKakaoMap();
+    const initializeKakaoMap = () => {
+      window.kakao.maps.load(() => {
+        const container = document.getElementById('map');
+        const options = {
+          center: new window.kakao.maps.LatLng(37.5665, 126.978), // 서울의 좌표 예시
+          level: 3,
+        };
+
+        // 여기에 추가적인 Kakao Map 기능을 구현할 수 있습니다.
+        var map = new window.kakao.maps.Map(container, options);
+        var geocoder = new window.kakao.maps.services.Geocoder();
+        if (props) {
+          geocoder.addressSearch(props.address, function (result, status) {
+            if (status === window.kakao.maps.services.Status.OK) {
+              var coords = new window.kakao.maps.LatLng(
+                result[0].y,
+                result[0].x
+              );
+              var marker = new window.kakao.maps.Marker({
+                map: map,
+                position: coords,
+              });
+              var infowindow = new window.kakao.maps.InfoWindow({
+                content: `<div style="width:150px;text-align:center;padding:6px 0;">${props.placeName}</div>`,
+              });
+              infowindow.open(map, marker);
+              map.setCenter(coords);
+            }
+          });
+        }
+      });
+    };
   }, [props]);
 
   return (
