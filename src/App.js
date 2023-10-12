@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ETMain from './pages/ETMain';
 import ETSearch from './pages/ETSearch';
+import ETSearchplace from './pages/ETSearchplace';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/Register" element={<Register></Register>}></Route>
         <Route path="/ETMain" element={<ETMain />}></Route>
         <Route path="/ETSearch" element={<ETSearch />}></Route>
+        <Route path="/ETSearch/:key1" element={<ETSearchplace />}></Route>
       </Routes>
       <Link to="/Demo">데모 페이지 표시</Link>
       <p><Link to="/Login">로그인 페이지 이동</Link></p>

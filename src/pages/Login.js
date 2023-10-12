@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
@@ -23,7 +24,7 @@ function Login() {
   function handleLogin() {
     // db.json에서 사용자 정보를 가져옵니다.
     axios
-      .get("http://localhost:3000/users")
+      .get('http://localhost:3000/users')
       .then((response) => {
         const users = response.data;
         const user = users.find(
@@ -36,11 +37,11 @@ function Login() {
           setIsLoggedIn(true);
           navigate("/ETMain");
         } else {
-          alert("로그인 실패");
+          alert('로그인 실패');
         }
       })
       .catch((error) => {
-        alert("로그인 중 오류 발생");
+        alert('로그인 중 오류 발생');
       });
   }
 

@@ -1,13 +1,26 @@
 .nav {
-  display: grid;
+  display: flex;
   width: 100%;
   height: 50px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   text-align: center;
   align-items: center;
+  place-items: center;
   position: fixed;
-  flex: 1;
+  /* flex: 1; */
+  justify-content: space-around;
   bottom: 0px;
   border-top: solid 1px #ccc;
   background-color: white;
+}
+.nav .container .material-symbols-outlined {
+  padding: 10px;
+  display: block;
+}
+.nav .container {
+  height: 100%;
+  width: 100%;
+}
+.active {
+  background-color: #ccc;
 }

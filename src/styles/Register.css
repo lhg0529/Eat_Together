@@ -4,10 +4,11 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #FFEBE0;
+  background-color: #ffebe0;
 }
 
-h1, h2 {
+.register-container h1,
+.register-container h2 {
   margin: 10px 0;
 }
 
@@ -59,13 +60,14 @@ input:focus {
   transform: translateX(-25%) translateY(-100%) scale(0.5);
 }
 
-.register-btn, .cancel-btn {
+.register-btn,
+.cancel-btn {
   margin: 10px 0;
   padding: 10px 20px;
   width: 150px;
   border: none;
   border-radius: 10px;
-  background-color: #FF3D00;
+  background-color: #ff3d00;
   color: white;
   cursor: pointer;
   font-size: 15px;

@@ -41,7 +41,7 @@ function ETMain() {
         <h3 className="room-list jejugothic">현재 방 목록</h3>
         {roomList.map((e, i) => {
           return (
-            <div className="room-item-container">
+            <div className="room-item-container" key={i}>
               <div className="room-info-container">
                 <div className="room-name">{e.RoomName}</div>
                 <div className="place-id">{e.PlaceID}번 지역</div>
