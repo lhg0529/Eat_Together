@@ -4,6 +4,7 @@ import '../styles/ETSearch.css';
 import cat from '../img/cat.jpg';
 import ETPlaceItem from '../components/ETPlaceItem';
 import ETNav from '../components/ETNav';
+import { useParams } from 'react-router';
 
 function ETSearch() {
   const categori = ['한식', '양식', '일식', '중식'];
@@ -24,9 +25,7 @@ function ETSearch() {
     },
   ];
   const [isShow, setIsShow] = useState(false);
-  const containerStyle = {
-    display: `${isShow ? 'none' : 'contents'}`,
-  };
+  console.log(useParams());
   return (
     <div>
       <ETHeader />
@@ -40,12 +39,16 @@ function ETSearch() {
           카테고리 v
           <div className={`categori-acodian ${isShow ? '' : 'acodian-open'}`}>
             {categori.map((e, i) => {
-              return <div className="categori-item">{e}</div>;
+              return (
+                <div key={i} className="categori-item">
+                  {e}
+                </div>
+              );
             })}
           </div>
         </div>
         <div className="search-container">
-          <span class="material-symbols-outlined search-icon">search</span>
+          <span className="material-symbols-outlined search-icon">search</span>
           <input className="search-place-input" type="text"></input>
         </div>
       </section>
@@ -53,6 +56,7 @@ function ETSearch() {
       {place.map((e, i) => {
         return (
           <ETPlaceItem
+            key={i}
             image={cat}
             placename={e.Placename}
             address={e.Address}

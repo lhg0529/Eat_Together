@@ -6,13 +6,13 @@ function ETNav() {
   return (
     <div className="nav">
       <Link to="/ETMain">
-        <span class="material-symbols-outlined">format_list_bulleted</span>
+        <span className="material-symbols-outlined">format_list_bulleted</span>
       </Link>
       <Link to="/ETSearch">
-        <span class="material-symbols-outlined">search</span>
+        <span className="material-symbols-outlined">search</span>
       </Link>
-      <span class="material-symbols-outlined">event_note</span>
-      <span class="material-symbols-outlined">person</span>
+      <span className="material-symbols-outlined">event_note</span>
+      <span className="material-symbols-outlined">person</span>
     </div>
   );
 }

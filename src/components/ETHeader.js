@@ -10,7 +10,7 @@ function ETHeader() {
         <img className="ETMain-Logo" src={Logo}></img>
       </Link>
       <div className="input-area">
-        <span class="material-symbols-outlined search-icon">search</span>
+        <span className="material-symbols-outlined search-icon">search</span>
         <input className="search" type="text"></input>
       </div>
     </header>
