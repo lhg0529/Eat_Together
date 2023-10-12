@@ -7,6 +7,14 @@
       "password": "qlalf1234",
       "admin": false,
       "id": 1
+    },
+    {
+      "name": "해인스",
+      "nickname": "인스님",
+      "username": "haein121",
+      "password": "1234qwer",
+      "admin": false,
+      "id": 2
     }
   ],
   "place": [

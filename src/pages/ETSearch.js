@@ -13,7 +13,6 @@ function ETSearch() {
   const [place, setPlace] = useState([]);
 
   async function fetchData() {
-    const list = [];
     await axios
       .get(JSON_SERVER + '/place')
       .then(function (e) {
