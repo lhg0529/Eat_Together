@@ -86,7 +86,7 @@ function Register() {
 
   return (
     <div className="register-container">
-      <h1>Eat Together에 오신 것을 환영합니다</h1>
+      <h1><span className="textRed">Eat Together </span>에 오신 것을 환영합니다</h1>
       <h2>회원가입</h2>
       <FloatingLabelInput
         type="text"
