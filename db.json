@@ -19,20 +19,37 @@
   ],
   "place": [
     {
-      "UID": 0,
+      "id": 0,
       "Placename": "오리역 맥도날드",
       "Address": "경기 성남시 분당구 성남대로 45",
       "GridX": 0,
       "GridY": 0
     },
     {
-      "UID": 1,
+      "id": 1,
       "Placename": "오리역 역전우동",
       "Address": "경기 성남시 분당구 성남대로 38 1층",
       "GridX": 37.3400535228037,
       "GridY": 127.108397541913
     }
   ],
-  "room": [],
+  "room": [
+    {
+      "id": 0,
+      "placeid": 0,
+      "hostid": 0,
+      "roomname": "점심 먹을사람",
+      "maxpeople": 4,
+      "date": "2023-10-09 12:00:00"
+    },
+    {
+      "id": 1,
+      "placeid": 1,
+      "hostid": 1,
+      "roomname": "우동 먹자",
+      "maxpeople": 5,
+      "date": "2023-10-10 12:30:00"
+    }
+  ],
   "joiner": []
 }
