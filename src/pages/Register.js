@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {Routes,Route, useNavigate} from 'react-router-dom';
 import '../styles/Register.css';
 import axios from 'axios';
+import Login from './Login';
+
 
 function Register() {
   const [name, setName] = useState('');
@@ -9,6 +11,7 @@ function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
   async function handleRegister() {
      // 이름: 2~10자리, 한글 또는 영어만 가능
@@ -71,6 +74,7 @@ function Register() {
   
       await axios.post('http://localhost:3000/users', user);
       alert('회원가입 성공');
+      navigate("/Login");
 
     } catch (error) {
       console.error("Error during registration:", error);
@@ -112,8 +116,14 @@ function Register() {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
+      <Routes>
+          <Route
+            path="/Login"
+            element={<Login></Login>}
+          ></Route>
+      </Routes>
       <button className="register-btn" onClick={handleRegister}>가입하기</button>
-      <button className='cancel-btn'>취소</button>
+      <button className='cancel-btn' onClick={()=>navigate("/Login")}>취소</button>
     </div>
   );
 }

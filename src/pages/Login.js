@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Link, Route, Routes, useNavigate } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import logo from "../img/ET_Logo.png";
-import Register from "../pages/Register";
-import Demo from "./ETMain";
+import Register from "./Register";
 import axios from "axios";
 import ETMain from "./ETMain";
 
@@ -58,15 +57,15 @@ function Login() {
         <button className="login-btn" onClick={handleLogin}>로그인</button>
         <Routes>
           <Route
-            path="../pages/Register"
+            path="/Register"
             element={<Register></Register>}
           ></Route>
           <Route
-            path="../pages/ETMain"
+            path="/ETMain"
             element={<ETMain></ETMain>}
           ></Route>
         </Routes>
-        <Link to="../pages/Register">
+        <Link to="/Register">
           <button className="register-page-btn">회원가입</button>
         </Link>
       </div>
