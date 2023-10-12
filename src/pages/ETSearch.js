@@ -4,7 +4,6 @@ import '../styles/ETSearch.css';
 import cat from '../img/cat.jpg';
 import ETPlaceItem from '../components/ETPlaceItem';
 import ETNav from '../components/ETNav';
-import { useParams } from 'react-router';
 
 function ETSearch() {
   const categori = ['한식', '양식', '일식', '중식'];
@@ -25,7 +24,6 @@ function ETSearch() {
     },
   ];
   const [isShow, setIsShow] = useState(false);
-  console.log(useParams());
   return (
     <div>
       <ETHeader />

@@ -18,7 +18,9 @@ function App() {
         <Route path="/ETSearch" element={<ETSearch />}></Route>
       </Routes>
       <Link to="/Demo">데모 페이지 표시</Link>
-      <p><Link to="/pages/Login">로그인 페이지 이동</Link></p>
+      <p>
+        <Link to="/pages/Login">로그인 페이지 이동</Link>
+      </p>
     </div>
   );
 }
