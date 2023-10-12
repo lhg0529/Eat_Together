@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "../styles/Login.css";
-import logo from "../images/ET_logo.png";
+import logo from "../img/ET_Logo.png";
 import Register from "../pages/Register";
 import axios from "axios";
 
