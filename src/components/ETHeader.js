@@ -3,13 +3,14 @@ import Logo from '../img/ET_Logo.png';
 import '../styles/ETHeader.css';
 import { Link, useLocation } from 'react-router-dom';
 
-function ETHeader() {
+function ETHeader({ name }) {
   const path = useLocation().pathname;
 
   function HeaderName() {
     switch (path) {
       case '/ETSearch':
-        return '찾기';
+        name = '찾기';
+        break;
       default:
     }
   }
@@ -34,7 +35,7 @@ function ETHeader() {
             chevron_left
           </span>
         </Link>
-        <h1 className="head-name">{HeaderName()}</h1>
+        <h1 className="head-name">{name}</h1>
       </>
     );
   }
