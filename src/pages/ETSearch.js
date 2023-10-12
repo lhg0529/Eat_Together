@@ -1,28 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ETHeader from '../components/ETHeader';
 import '../styles/ETSearch.css';
 import cat from '../img/cat.jpg';
 import ETPlaceItem from '../components/ETPlaceItem';
 import ETNav from '../components/ETNav';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { JSON_SERVER } from '../JsonConfig';
 
 function ETSearch() {
   const categori = ['한식', '양식', '일식', '중식'];
-  const place = [
-    {
-      UID: 0,
-      Placename: '오리역 맥도날드',
-      Address: '경기 성남시 분당구 성남대로 45',
-      GridX: 0.0,
-      GridY: 0.0,
-    },
-    {
-      UID: 1,
-      Placename: '오리역 역전우동',
-      Address: '경기 성남시 분당구 성남대로 38 1층',
-      GridX: 0.0,
-      GridY: 0.0,
-    },
-  ];
+  const [place, setPlace] = useState([]);
+
+  async function fetchData() {
+    const place = (await axios.get(JSON_SERVER + '/place').then()).data;
+    setPlace(place);
+  }
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const [isShow, setIsShow] = useState(false);
   return (
     <div>
@@ -53,12 +50,14 @@ function ETSearch() {
       <hr />
       {place.map((e, i) => {
         return (
-          <ETPlaceItem
-            key={i}
-            image={cat}
-            placename={e.Placename}
-            address={e.Address}
-          />
+          <Link to={`./${e.UID}`}>
+            <ETPlaceItem
+              key={i}
+              image={cat}
+              placename={e.Placename}
+              address={e.Address}
+            />
+          </Link>
         );
       })}
       <ETNav />
