@@ -26,7 +26,7 @@ function Login() {
       return;
     } 
   
-    // db.json에서 사용자 정보를 가져옵니다.
+    // db.json에서 사용자 정보를 가져옵니다
     axios
       .get(JSON_SERVER + '/users')
       .then((response) => {
