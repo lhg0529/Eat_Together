@@ -15,6 +15,14 @@
       "password": "1234qwer",
       "admin": false,
       "id": 2
+    },
+    {
+      "name": "이름",
+      "nickname": "닉네임",
+      "username": "dkdlel1",
+      "password": "qlalf123",
+      "admin": false,
+      "id": 3
     }
   ],
   "place": [
