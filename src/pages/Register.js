@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Register.css';
 import axios from 'axios';
-import Login from './Login';
 import FloatingLabelInput from '../components/FloatingLabelInput';
 import { JSON_SERVER } from '../JsonConfig';
 
@@ -118,9 +117,7 @@ function Register() {
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
-      <Routes>
-        <Route path="/Login" element={<Login></Login>}></Route>
-      </Routes>
+
       <button className="register-btn" onClick={handleRegister}>
         가입하기
       </button>
