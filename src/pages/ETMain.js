@@ -16,18 +16,13 @@ function ETMain() {
   // 프롭으로 넘겨주기 위한 배열
   const images = [cat, cat2, cat3];
   const [rooms, setRooms] = useState([]);
-  const [place, setPlace] = useState([]);
   async function fetchData() {
     const array = await axios.get(JSON_SERVER + '/room').then();
     setRooms(array.data);
   }
-  async function fetchPlaceData() {
-    const array = await axios.get(JSON_SERVER + '/place').then();
-    setPlace(array.data);
-  }
+
   useEffect(() => {
     fetchData();
-    fetchPlaceData();
   }, []);
 
   useEffect(() => {
@@ -35,15 +30,6 @@ function ETMain() {
   }, [rooms]);
   // 더미데이터
 
-  function joinRoom() {
-    const a = localStorage.getItem('user');
-    if (a) {
-      console.log('조인하기');
-    } else {
-      console.log('로그인으로');
-    }
-  }
-  joinRoom();
   return (
     <div className="ETMain">
       <ETHeader />
