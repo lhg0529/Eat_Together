@@ -6,37 +6,40 @@ import Kakaomap from '../components/Kakaomap';
 import axios from 'axios';
 import { JSON_SERVER } from '../JsonConfig';
 import '../styles/ETSearchplace.css';
+import Room from '../components/Room';
 
 function ETSearchplace() {
   const placeID = useParams().key1;
-  const [place, setPlace] = useState([]);
+  const [rooms, setRooms] = useState([]);
   const [thisPlace, setThisPlace] = useState({});
 
-  async function fetchData() {
-    const place = (await axios.get(JSON_SERVER + '/place').then()).data;
-    setPlace(place);
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
-  useEffect(() => {
-    findAddr();
-  }, [place]);
-
-  function findAddr() {
-    const foundPlace = place.find((p) => p.id === parseInt(placeID));
-
-    if (foundPlace) {
-      console.log('찾은 요소:', foundPlace);
-      setThisPlace(foundPlace);
-      console.log(thisPlace);
-      console.log(thisPlace.GridX);
-      console.log(thisPlace.GridY);
-      console.log(typeof 3.141592);
-    } else {
-      console.log('해당 UID를 가진 요소를 찾을 수 없습니다.');
+  async function fetchData(f) {
+    const place = (await axios.get(JSON_SERVER + `/place?id=${placeID}`).then())
+      .data;
+    if (place.length > 0) {
+      setThisPlace(place[0]);
+      // console.log(thisPlace);
+    }
+    if (f && typeof f === 'function') {
+      // console.log('콜백');
+      f();
     }
   }
+  async function fetchRoomData() {
+    const findRoom = await axios
+      .get(JSON_SERVER + `/room?placeid=${thisPlace.id}`)
+      .then();
+    if (findRoom.data.length > 0) {
+      setRooms(findRoom.data);
+      console.log('findRoom.data');
+    }
+  }
+  useEffect(() => {
+    fetchData(fetchRoomData);
+  }, []);
+  useEffect(() => {
+    console.log(rooms);
+  }, [rooms]);
 
   return (
     <div>
@@ -52,6 +55,18 @@ function ETSearchplace() {
       <h3 className="place-address">{thisPlace.Address}</h3>
       <hr />
       <h1 className="place-room-list">현재 방 목록</h1>
+      {rooms.map((e, i) => {
+        return (
+          <Room
+            key={i}
+            id={e.id}
+            roomname={e.roomname}
+            placeid={e.placeid}
+            date={e.date}
+            maxpeople={e.maxpeople}
+          />
+        );
+      })}
 
       <ETNav></ETNav>
     </div>
