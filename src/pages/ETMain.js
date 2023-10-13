@@ -47,9 +47,6 @@ function ETMain() {
           );
         })}
       </div>
-      <hr />
-      <hr />
-      <hr />
       <ETNav />
     </div>
   );

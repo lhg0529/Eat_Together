@@ -73,6 +73,21 @@
       "roomname": "모여서 먹자",
       "maxpeople": 5,
       "date": "2023-10-11 12:30:00"
+    },
+    {
+      "placeid": "0",
+      "hostid": 0,
+      "roomname": "asdfasf",
+      "maxpeople": "4",
+      "date": "2023-01-01T01:00",
+      "id": 3
+    },
+    {
+      "placeid": "0",
+      "roomname": "aaabbb",
+      "maxpeople": "3",
+      "date": "2023-01-01T12:00",
+      "id": 4
     }
   ],
   "joiner": [
