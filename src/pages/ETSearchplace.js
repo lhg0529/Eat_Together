@@ -17,29 +17,26 @@ function ETSearchplace() {
     const place = (await axios.get(JSON_SERVER + `/place?id=${placeID}`).then())
       .data;
     if (place.length > 0) {
-      setThisPlace(place[0]);
-      // console.log(thisPlace);
-    }
-    if (f && typeof f === 'function') {
-      // console.log('콜백');
-      f();
+      const placeData = place[0];
+      setThisPlace(placeData);
+      if (f && typeof f === 'function') {
+        f(placeData); // Pass placeData to the callback
+      }
     }
   }
-  async function fetchRoomData() {
+
+  async function fetchRoomData(placeData) {
     const findRoom = await axios
-      .get(JSON_SERVER + `/room?placeid=${thisPlace.id}`)
+      .get(JSON_SERVER + `/room?placeid=${placeData.id}`)
       .then();
     if (findRoom.data.length > 0) {
       setRooms(findRoom.data);
-      console.log('findRoom.data');
     }
   }
+
   useEffect(() => {
     fetchData(fetchRoomData);
   }, []);
-  useEffect(() => {
-    console.log(rooms);
-  }, [rooms]);
 
   return (
     <div>
