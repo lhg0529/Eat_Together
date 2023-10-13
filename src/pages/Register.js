@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Register.css';
 import axios from 'axios';
-import Login from './Login';
 import FloatingLabelInput from '../components/FloatingLabelInput';
 import { JSON_SERVER } from '../JsonConfig';
 
@@ -89,38 +88,40 @@ function Register() {
       <h1><span className="textRed">Eat Together </span>에 오신 것을 환영합니다</h1>
       <h2>회원가입</h2>
       <FloatingLabelInput
+        className="register-input-container"
         type="text"
         label="이름 (2~10자리, 한글 또는 영어만)"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <FloatingLabelInput
+        className="register-input-container"
         type="text"
         label="닉네임 (2~12자리)"
         value={nickname}
         onChange={(e) => setNickname(e.target.value)}
       />
       <FloatingLabelInput
+        className="register-input-container"
         type="text"
         label="아이디(영문, 숫자 조합 6~12자리)"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <FloatingLabelInput
+        className="register-input-container"
         type="password"
         label="비밀번호(영문, 숫자 조합 8~16자리)"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <FloatingLabelInput
+        className="register-input-container"
         type="password"
         label="비밀번호 확인"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
-      <Routes>
-        <Route path="/Login" element={<Login></Login>}></Route>
-      </Routes>
       <button className="register-btn" onClick={handleRegister}>
         가입하기
       </button>

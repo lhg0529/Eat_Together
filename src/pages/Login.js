@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import logo from '../img/ET_Logo.png';
-import Register from './Register';
 import axios from 'axios';
-import ETMain from './ETMain';
 import { JSON_SERVER } from '../JsonConfig';
 
 function Login() {
@@ -69,10 +67,6 @@ function Login() {
         <button className="login-btn" onClick={handleLogin}>
           로그인
         </button>
-        <Routes>
-          <Route path="/Register" element={<Register></Register>}></Route>
-          <Route path="/ETMain" element={<ETMain></ETMain>}></Route>
-        </Routes>
         <Link to="/Register">
           <button className="register-page-btn">회원가입</button>
         </Link>

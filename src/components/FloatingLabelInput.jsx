@@ -19,7 +19,7 @@ function FloatingLabelInput(props) {
   };
 
   return (
-    <div className="input-container">
+    <div className="register-input-container">
       <input 
         type={props.type} 
         onFocus={handleFocus} 

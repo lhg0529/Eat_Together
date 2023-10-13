@@ -1,3 +1,4 @@
+/* 회원가입 페이지 전체 컨테이너 */
 .register-container {
   display: flex;
   flex-direction: column;
@@ -5,65 +6,55 @@
   justify-content: center;
   height: 100vh;
   background-color: #ffebe0;
-  
 }
+
+/*Eat together 글자색*/
 .textRed{
-  color: #ff3d00;  /*회원가입 페이지 Eat together 글자색*/
+  color: #ff3d00;  
   font-weight: bold;
 }
+
+/* Eat Together에 오신 것을 환영합니다 */
 .register-container h1
 {
   margin: 30px 0;
 }
 
+/* 회원가입 */
 .register-container h2 {
   margin: 0px 0;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 500;
 }
 
-/* 입력하는 곳 흰색 배경 설정값 */
-.register-container input {
-  padding: 10px 5px;
-  margin: 10px 0;
-  width: 250px;
-  border: none;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-radius: 10px;
-}
-.register-container input:focus {
-  outline-color: #ff3d00;
-  outline-offset: 0px;
-}
-
-.input-container {
+/* 입력하는 곳 배경 */
+.register-input-container {
   position: relative;
   width: 300px;
   margin: 10px 0;
-  
+  border-radius: 10px;
+  border: none;
 }
 
-/* 기본 텍스트 크기 조절. font-size */
-.input-container input {
+/* 입력하는 곳 */
+.register-input-container input {
   padding-left: 0;
   padding: 10px 5px;
   margin: 0px 0;
   width: 100%;
-  border: none;
   padding-top: 20px;
   padding-bottom: 15px;
-  font-size: 14px;
+  font-size:14px;
   text-align: center;
-  /* font-weight: 100; */
-}
-.input-container input:focus {
-  outline-color: #ff3d00;
-  outline-offset: 0px;
 }
 
-/* 기본 라벨 텍스트 크기 설정 fontsize */
-.input-container label {
+/* 입력하는 곳 클릭했을 때 테두리 색 */
+.register-input-container input:focus {
+  outline: 2px solid #ff3d00;
+}
+
+/* 클릭 전에 라벨 텍스트 설정 */
+.register-input-container label {
   position: absolute;
   left: 0px;
   bottom: 18px;
@@ -73,14 +64,16 @@
   font-weight: 100;
   width: 100%;
   text-align: center;       
-  white-space: nowrap;     /* 줄 바꿈을 방지하여 라벨이 한 줄로 유지되게 함 */
+  white-space: nowrap; /* 줄 바꿈을 방지하여 라벨이 한 줄로 유지되게 함 */
   overflow: hidden;
 }
-/* 활성 상태 텍스트 위치와 크기 설정 */
+
+/* 클릭 된 후 라벨 활성 상태 때 텍스트 위치와 크기 설정 */
 .label-active {
   transform: translateY(-100%) scale(0.6);
 }
 
+/* 가입하기, 취소 버튼 */
 .register-btn,
 .cancel-btn {
   margin: 10px 0;

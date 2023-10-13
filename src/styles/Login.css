@@ -17,31 +17,33 @@
   justify-content: center;
 }
 
+/* 함께 먹는 즐거움 */
 .welcome-text {
-  font-size: 14px;
-  margin-bottom: 15px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
+/* Eat Together */
 .outer-container h1 {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-weight: bold;
   color: #ff3d00;
 }
 
 .logo {
-  margin: 20px 0;
+  margin: 10px 0; /*로고 위아래 공간*/
 }
 
+/* 로고 이미지 */
 .logo img {
-  width: 150px; /* 로고의 크기를 조절하려면 이 값을 변경하세요. */
+  width: 150px; 
   height: auto;
-  border: none; /* 테두리 제거 */
-  background-color: transparent; /* 배경색을 투명하게 */
 }
 
+/* 아이디, 비밀번호 컨테이너 */
 .outer-container input {
-  margin: 5px 0;
+  margin: 10px 0;
   padding: 10px;
   width: 200px;
   border: none;
@@ -49,6 +51,11 @@
   text-align: center;
 }
 
+.outer-container input:focus {
+  outline: 2px solid #ff3d00;
+}
+
+/* 로그인, 회원가입 버튼 */
 .login-btn,
 .register-page-btn {
   margin: 10px 0;
