@@ -8,8 +8,15 @@ function Room({ roomname, placeid, date, maxpeople }) {
 
   async function fetchPlaceData() {
     const array = await axios.get(JSON_SERVER + `/place?id=${placeid}`).then();
-    console.log(array.data);
+    // console.log(array.data);
     setPlace(array.data);
+  }
+  function findAddress() {
+    if (place.length > 0) {
+      return place[0].Address;
+    } else {
+      return '';
+    }
   }
   function joinRoom() {
     const a = localStorage.getItem('user');
@@ -26,7 +33,7 @@ function Room({ roomname, placeid, date, maxpeople }) {
     <div className="room-item-container">
       <div className="room-info-container">
         <div className="room-name">{roomname}</div>
-        <div className="place-id">{place[0].Address}</div>
+        <div className="place-id">{findAddress()}</div>
         <div className="room-date">{date}</div>
       </div>
       <div className="join-btn-container">

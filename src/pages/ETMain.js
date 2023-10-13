@@ -24,10 +24,6 @@ function ETMain() {
   useEffect(() => {
     fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log(rooms);
-  }, [rooms]);
   // 더미데이터
 
   return (
