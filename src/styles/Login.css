@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh; /* 뷰포트의 전체 높이 */
-  width: 100vw; /* 뷰포트의 전체 너비 */
+  /* width: 100vw; 뷰포트의 전체 너비 */
   background-color: #ffebe0; /* 배경색 */
 }
 

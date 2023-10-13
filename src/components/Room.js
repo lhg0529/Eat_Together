@@ -3,13 +3,31 @@ import '../styles/Room.css';
 import axios from 'axios';
 import { JSON_SERVER } from '../JsonConfig';
 
-function Room({ roomname, placeid, date, maxpeople }) {
+function Room({ id, roomname, placeid, date, maxpeople }) {
   const [place, setPlace] = useState([]);
+  const [joiner, setJoiner] = useState([]);
 
   async function fetchPlaceData() {
     const array = await axios.get(JSON_SERVER + `/place?id=${placeid}`).then();
     // console.log(array.data);
     setPlace(array.data);
+  }
+  async function fetchJoinerData() {
+    axios
+      .get(JSON_SERVER + `/joiner?roomid=${id}`)
+      .then(function (e) {
+        setJoiner(e.data);
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      });
   }
   function findAddress() {
     if (place.length > 0) {
@@ -28,6 +46,7 @@ function Room({ roomname, placeid, date, maxpeople }) {
   }
   useEffect(() => {
     fetchPlaceData();
+    fetchJoinerData();
   }, []);
   return (
     <div className="room-item-container">
@@ -38,7 +57,9 @@ function Room({ roomname, placeid, date, maxpeople }) {
       </div>
       <div className="join-btn-container">
         <div className="square-button-container">
-          <div className="max-people">0 / {maxpeople}</div>
+          <div className="max-people">
+            {joiner.length} / {maxpeople}
+          </div>
         </div>
         <button className="square-button" onClick={joinRoom}>
           같이 먹기

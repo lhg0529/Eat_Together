@@ -38,6 +38,7 @@ function ETMain() {
           return (
             <Room
               key={i}
+              id={e.id}
               roomname={e.roomname}
               placeid={e.placeid}
               date={e.date}
