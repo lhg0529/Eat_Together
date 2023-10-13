@@ -22,10 +22,6 @@ function App() {
           <Route path="/ETSearch/:key1" element={<ETSearchplace />}></Route>
           <Route path="/ETRVInfo" element={<ETRVInfo />}></Route>
         </Routes>
-        <Link to="/Demo">데모 페이지 표시</Link>
-        <p>
-          <Link to="/Login">로그인 페이지 이동</Link>
-        </p>
       </div>
     </div>
   );

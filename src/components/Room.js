@@ -9,8 +9,6 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
 
   async function fetchPlaceData() {
     const array = await axios.get(JSON_SERVER + `/place?id=${placeid}`).then();
-    console.log('룸컴포넌트 place');
-    console.log(array);
     setPlace(array.data);
   }
   async function fetchJoinerData() {

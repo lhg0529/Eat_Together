@@ -15,6 +15,22 @@
       "password": "1234qwer",
       "admin": false,
       "id": 2
+    },
+    {
+      "name": "AA",
+      "nickname": "AA님",
+      "username": "AAA21",
+      "password": "1234qwer",
+      "admin": false,
+      "id": 3
+    },
+    {
+      "name": "00",
+      "nickname": "00님",
+      "username": "00021",
+      "password": "1234qwer",
+      "admin": false,
+      "id": 0
     }
   ],
   "place": [
@@ -49,6 +65,14 @@
       "roomname": "우동 먹자",
       "maxpeople": 5,
       "date": "2023-10-10 12:30:00"
+    },
+    {
+      "id": 2,
+      "placeid": 0,
+      "hostid": 2,
+      "roomname": "모여서 먹자",
+      "maxpeople": 5,
+      "date": "2023-10-11 12:30:00"
     }
   ],
   "joiner": [
@@ -66,6 +90,11 @@
       "id": 2,
       "userid": 1,
       "roomid": 1
+    },
+    {
+      "id": 3,
+      "userid": 2,
+      "roomid": 2
     }
   ]
 }
