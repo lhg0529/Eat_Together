@@ -71,7 +71,7 @@ function ETSearch() {
       <hr />
       {place.map((e, i) => {
         return (
-          <Link key={i} to={`./${e.UID}`}>
+          <Link key={i} to={`./${e.id}`}>
             <ETPlaceItem
               key={i}
               image={cat}

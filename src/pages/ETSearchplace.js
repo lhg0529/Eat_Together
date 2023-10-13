@@ -24,7 +24,7 @@ function ETSearchplace() {
   }, [place]);
 
   function findAddr() {
-    const foundPlace = place.find((p) => p.UID === parseInt(placeID));
+    const foundPlace = place.find((p) => p.id === parseInt(placeID));
 
     if (foundPlace) {
       console.log('찾은 요소:', foundPlace);

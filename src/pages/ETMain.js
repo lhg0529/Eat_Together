@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/ETMain.css';
 import ETHeader from '../components/ETHeader';
 import ETNav from '../components/ETNav';
@@ -8,29 +8,24 @@ import ImageCarousel from '../components/ImageCarousel';
 import cat from '../img/cat.jpg';
 import cat2 from '../img/cat2.jpg';
 import cat3 from '../img/cat3.jpg';
+import axios from 'axios';
+import { JSON_SERVER } from '../JsonConfig';
+import Room from '../components/Room';
 
 function ETMain() {
   // 프롭으로 넘겨주기 위한 배열
   const images = [cat, cat2, cat3];
+  const [rooms, setRooms] = useState([]);
+  async function fetchData() {
+    const array = await axios.get(JSON_SERVER + '/room').then();
+    setRooms(array.data);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   // 더미데이터
-  const roomList = [
-    {
-      UID: 0,
-      PlaceID: 0,
-      HostID: 0,
-      RoomName: '점심 먹으러 가실분',
-      MaxPeople: 4,
-      Day: new Date('2023-10-09 12:00:00'),
-    },
-    {
-      UID: 1,
-      PlaceID: 1,
-      HostID: 1,
-      RoomName: '우동 가실분',
-      MaxPeople: 4,
-      Day: new Date('2023-10-09 12:30:00'),
-    },
-  ];
+
   return (
     <div className="ETMain">
       <ETHeader />
@@ -39,21 +34,15 @@ function ETMain() {
       <hr />
       <div className="now-room">
         <h3 className="room-list jejugothic">현재 방 목록</h3>
-        {roomList.map((e, i) => {
+        {rooms.map((e, i) => {
           return (
-            <div className="room-item-container" key={i}>
-              <div className="room-info-container">
-                <div className="room-name">{e.RoomName}</div>
-                <div className="place-id">{e.PlaceID}번 지역</div>
-                <div className="room-date">{e.Day.toLocaleString()};</div>
-              </div>
-              <div className="join-btn-container">
-                <div className="square-button-container">
-                  <div className="max-people">0 / {e.MaxPeople}</div>
-                </div>
-                <button className="square-button">같이 먹기</button>
-              </div>
-            </div>
+            <Room
+              key={i}
+              roomname={e.roomname}
+              placeid={e.placeid}
+              date={e.date}
+              maxpeople={e.maxpeople}
+            ></Room>
           );
         })}
       </div>
