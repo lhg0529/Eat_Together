@@ -5,4 +5,18 @@
 }
 .App {
   font-family: 'Jeju Gothic';
+  background-color: #ccc;
+}
+.inner {
+  margin: 0 auto;
+  width: 500px;
+  min-height: 100vb;
+  background-color: white;
+  position: relative;
+}
+a {
+  text-decoration-line: none;
+}
+a:visited {
+  color: black;
 }
