@@ -6,28 +6,42 @@ import { JSON_SERVER } from '../JsonConfig';
 function Room({ id, roomname, placeid, date, maxpeople }) {
   const [place, setPlace] = useState([]);
   const [joiner, setJoiner] = useState([]);
+  const [joinCompleted, setJoinCompleted] = useState(false);
+  const localUser = JSON.parse(localStorage.getItem('user'));
 
+  //방 지역 데이터
   async function fetchPlaceData() {
-    const array = await axios.get(JSON_SERVER + `/place?id=${placeid}`).then();
+    const array = await axios.get(JSON_SERVER + `/place?id=${placeid}`);
+    // array.data
     setPlace(array.data);
+    fetchJoinerData();
   }
+
+  //방에 참여한 인원 데이터
   async function fetchJoinerData() {
-    axios
-      .get(JSON_SERVER + `/joiner?roomid=${id}`)
-      .then(function (e) {
-        setJoiner(e.data);
-      })
-      .catch(function (error) {
-        if (error.response) {
-          console.log(error.response);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log('Error', error.message);
-        }
-        console.log(error.config);
-      });
+    const fetchData = await axios.get(JSON_SERVER + `/joiner?roomid=${id}`);
+    setJoiner(fetchData.data);
+    // console.log(joiner);
   }
+  function postJoinRoom() {
+    const postData = {
+      userid: localUser.id,
+      roomid: id,
+    };
+    axios.post(JSON_SERVER + `/joiner`, postData);
+  }
+
+  //joiner에 본인이 포함되어 있는지
+  function searchJoinerInMyId() {
+    setJoinCompleted(
+      !(joiner.find((e) => e.userid === localUser.id) === undefined)
+    );
+  }
+
+  useEffect(() => {
+    searchJoinerInMyId();
+  }, [joiner]);
+
   function findAddress() {
     if (place.length > 0) {
       return place[0].Address;
@@ -38,14 +52,13 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
   function joinRoom() {
     const a = localStorage.getItem('user');
     if (a) {
-      console.log('조인하기');
+      postJoinRoom();
     } else {
       console.log('로그인으로');
     }
   }
   useEffect(() => {
     fetchPlaceData();
-    fetchJoinerData();
   }, []);
   return (
     <div className="room-item-container">
@@ -60,8 +73,12 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
             {joiner.length} / {maxpeople}
           </div>
         </div>
-        <button className="square-button" onClick={joinRoom}>
-          같이 먹기
+        <button
+          className={`square-button ${joinCompleted ? 'active' : ''}`}
+          onClick={joinRoom}
+          disabled={joinCompleted}
+        >
+          {joinCompleted ? '참여 완료' : '같이 먹기'}
         </button>
       </div>
     </div>

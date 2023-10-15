@@ -1,34 +1,55 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/CreateRoom.css';
 import axios from 'axios';
 import { JSON_SERVER } from '../JsonConfig';
 
-function CreateRoom({ placeid, setIsCreateRoom }) {
-  const [roomName, setRoomName] = useState('');
-  const [maxPeople, setMaxPeople] = useState(0);
+function CreateRoom({ placeid, setIsCreateRoom, userid }) {
+  const [roomName, setRoomName] = useState('test');
+  const [maxPeople, setMaxPeople] = useState(3);
   const [RVDate, setRVDate] = useState('0000. 00. 00. 오전 0:00:00');
+  const [resBody, setResBody] = useState({});
+  const [isRoomCreated, setIsRoomCreated] = useState(false);
+  const localUser = JSON.parse(localStorage.getItem('user'));
+
   function postCreateRoom() {
-    axios.post(JSON_SERVER + `/room`, {
-      placeid: placeid,
-      hostid: localStorage.getItem('user').id,
-      roomname: roomName,
-      maxpeople: maxPeople,
-      date: RVDate,
-    });
+    axios
+      .post(JSON_SERVER + `/room`, {
+        placeid: placeid,
+        hostid: localUser.id,
+        roomname: roomName,
+        maxpeople: maxPeople,
+        date: RVDate,
+      })
+      .then((res) => {
+        setResBody(res.data);
+        setIsRoomCreated(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
-  console.log();
+  function postJoinerInfo() {
+    const tempUserId = localUser.id;
+    const userInfo = {
+      roomid: resBody.id,
+      userid: tempUserId, // 변경된 부분: userids -> userid
+    };
+    if (isRoomCreated) {
+      axios.post(JSON_SERVER + `/joiner`, userInfo).finally(() => {
+        setIsCreateRoom(false);
+      });
+    }
+  }
+
+  useEffect(() => {
+    postJoinerInfo();
+  }, [isRoomCreated]);
   return (
     <div className="modal-background">
       <div className="modal-input-container">
         <div className="modal-header">
           <div>방 만들기</div>
-          <div
-            onClick={() => {
-              setIsCreateRoom(false);
-            }}
-          >
-            X
-          </div>
+          <div>X</div>
         </div>
         <div className="modal-body">
           <div className="modal-body-input-name">방 이름</div>
@@ -57,7 +78,6 @@ function CreateRoom({ placeid, setIsCreateRoom }) {
           className="modal-create-room-btn"
           onClick={() => {
             postCreateRoom();
-            setIsCreateRoom(false);
           }}
         >
           <div>방 만들기</div>

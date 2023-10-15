@@ -13,7 +13,7 @@ function ETSearchplace() {
   const placeID = useParams().key1;
   const [rooms, setRooms] = useState([]);
   const [thisPlace, setThisPlace] = useState({});
-  const [isCreateRoom, setIsCreateRoom] = useState(true);
+  const [isCreateRoom, setIsCreateRoom] = useState(false);
 
   async function fetchData(f) {
     const place = (await axios.get(JSON_SERVER + `/place?id=${placeID}`).then())

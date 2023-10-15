@@ -76,18 +76,43 @@
     },
     {
       "placeid": "0",
-      "hostid": 0,
-      "roomname": "asdfasf",
-      "maxpeople": "4",
-      "date": "2023-01-01T01:00",
+      "hostid": 2,
+      "roomname": "test",
+      "maxpeople": 3,
+      "date": "0000. 00. 00. 오전 0:00:00",
       "id": 3
     },
     {
-      "placeid": "0",
-      "roomname": "aaabbb",
-      "maxpeople": "3",
-      "date": "2023-01-01T12:00",
+      "placeid": "1",
+      "hostid": 2,
+      "roomname": "test",
+      "maxpeople": 3,
+      "date": "0000. 00. 00. 오전 0:00:00",
       "id": 4
+    },
+    {
+      "placeid": "0",
+      "hostid": 2,
+      "roomname": "test",
+      "maxpeople": 3,
+      "date": "0000. 00. 00. 오전 0:00:00",
+      "id": 5
+    },
+    {
+      "placeid": "1",
+      "hostid": 2,
+      "roomname": "test",
+      "maxpeople": 3,
+      "date": "0000. 00. 00. 오전 0:00:00",
+      "id": 6
+    },
+    {
+      "placeid": "1",
+      "hostid": 2,
+      "roomname": "밥 먹자고",
+      "maxpeople": "5",
+      "date": "2023-10-27T12:59",
+      "id": 7
     }
   ],
   "joiner": [
@@ -110,6 +135,46 @@
       "id": 3,
       "userid": 2,
       "roomid": 2
+    },
+    {
+      "roomid": 3,
+      "userid": 2,
+      "id": 4
+    },
+    {
+      "roomid": 3,
+      "userid": 2,
+      "id": 5
+    },
+    {
+      "roomid": 4,
+      "userid": 2,
+      "id": 6
+    },
+    {
+      "roomid": 5,
+      "userid": 2,
+      "id": 7
+    },
+    {
+      "roomid": 6,
+      "userid": 2,
+      "id": 8
+    },
+    {
+      "roomid": 7,
+      "userid": 2,
+      "id": 9
+    },
+    {
+      "userid": 2,
+      "roomid": 1,
+      "id": 10
+    },
+    {
+      "userid": 2,
+      "roomid": 0,
+      "id": 11
     }
   ]
 }

@@ -22,6 +22,7 @@ function App() {
           <Route path="/ETSearch/:key1" element={<ETSearchplace />}></Route>
           <Route path="/ETRVInfo" element={<ETRVInfo />}></Route>
         </Routes>
+        <div className="dumy"></div>
       </div>
     </div>
   );

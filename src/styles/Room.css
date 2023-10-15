@@ -18,6 +18,12 @@
   align-items: center;
   margin-right: 10px;
 }
+.join-btn-container .active {
+  background-color: #888;
+}
+.join-btn-container:hover .active {
+  background-color: #888;
+}
 
 .square-button {
   width: 50px;
