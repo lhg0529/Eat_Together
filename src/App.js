@@ -26,8 +26,6 @@ function App() {
     <div className="App">
       <div className="inner">
         <Routes>
-          <Route path="/" element={<h1>asdf</h1>}></Route>
-          <Route path="/Demo" element={<Demo></Demo>}></Route>
           <Route path="/Login" element={<Login></Login>}></Route>
           <Route path="/Register" element={<Register></Register>}></Route>
           <Route path="/ETMain" element={<ETMain />}></Route>
