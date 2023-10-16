@@ -1,0 +1,19 @@
+.info-container {
+  margin: 10px;
+}
+.info-room-name-container,
+.info-place-name-container,
+.info-place-addr-container,
+.info-place-date-container,
+.info-place-joiner-container {
+  font-size: 15px;
+  color: #888;
+  margin-top: 10px;
+}
+.info-room-name,
+.info-place-name,
+.info-place-addr,
+.info-place-date,
+.info-place-joiner {
+  font-size: 20px;
+}

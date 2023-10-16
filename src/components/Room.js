@@ -14,7 +14,6 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
   //방 지역 데이터
   async function fetchPlaceData() {
     const array = await axios.get(JSON_SERVER + `/place?id=${placeid}`);
-    // array.data
     setPlace(array.data);
     fetchJoinerData();
   }

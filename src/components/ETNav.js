@@ -24,8 +24,8 @@ function ETNav() {
           <span className={`material-symbols-outlined`}>event_note</span>
         </Link>
       </div>
-      <div className={`container ${path === '' ? 'active' : ''}`}>
-        <Link>
+      <div className={`container ${path === '/MyPage' ? 'active' : ''}`}>
+        <Link to="/MyPage">
           <span className={`material-symbols-outlined`}>person</span>
         </Link>
       </div>

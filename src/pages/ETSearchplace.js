@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
 import ETHeader from '../components/ETHeader';
 import ETNav from '../components/ETNav';
@@ -8,37 +8,28 @@ import { JSON_SERVER } from '../JsonConfig';
 import '../styles/ETSearchplace.css';
 import Room from '../components/Room';
 import CreateRoom from '../components/CreateRoom';
+import RoomList from '../components/RoomList';
 
 function ETSearchplace() {
   const placeID = useParams().key1;
   const [rooms, setRooms] = useState([]);
   const [thisPlace, setThisPlace] = useState({});
   const [isCreateRoom, setIsCreateRoom] = useState(false);
+  // const roomListElement = useRef();
 
-  async function fetchData(f) {
+  async function fetchData() {
     const place = (await axios.get(JSON_SERVER + `/place?id=${placeID}`).then())
       .data;
     if (place.length > 0) {
       const placeData = place[0];
-      console.log(placeData);
+      // console.log(placeData);
       setThisPlace(placeData);
-      if (f && typeof f === 'function') {
-        f(placeData); // Pass placeData to the callback
-      }
     }
   }
 
-  async function fetchRoomData(placeData) {
-    const findRoom = await axios
-      .get(JSON_SERVER + `/room?placeid=${placeData.id}`)
-      .then();
-    if (findRoom.data.length > 0) {
-      setRooms(findRoom.data);
-    }
-  }
-
+  // useEffect(() => {}, [thisPlace]);
   useEffect(() => {
-    fetchData(fetchRoomData);
+    fetchData();
   }, []);
 
   return (
@@ -60,24 +51,14 @@ function ETSearchplace() {
       <h3 className="place-address">{thisPlace.Address}</h3>
       <hr />
       <h1 className="place-room-list">현재 방 목록</h1>
-      {rooms.map((e, i) => {
-        return (
-          <Room
-            key={i}
-            id={e.id}
-            roomname={e.roomname}
-            placeid={e.placeid}
-            date={e.date}
-            maxpeople={e.maxpeople}
-          />
-        );
-      })}
+      <RoomList placeData={placeID} />
       <div className="floating-btn">
         <div className="create-room">
           <div
             className="create-room-text"
             onClick={() => {
               setIsCreateRoom(true);
+              // roomListElement.current.fetchData();
             }}
           >
             방 만들기
