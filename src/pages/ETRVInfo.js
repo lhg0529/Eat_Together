@@ -30,13 +30,13 @@ function ETRVInfo() {
       }
     });
     const roomData = await axios.get(JSON_SERVER + `/room?${tempRoomData}`);
-    console.log(roomData.data);
     setMyRooms(roomData.data);
   }
-  useEffect(() => {
-    console.log('myrooms');
-    console.log(myRooms);
-  }, [myRooms]);
+  function deleteMyRoom(id) {
+    const newArr = myRooms.filter((e) => e.id !== id);
+    setMyRooms(newArr);
+  }
+  useEffect(() => {}, [myRooms]);
   useEffect(() => {
     fetchMyRoom();
   }, [joinerData]);
@@ -57,6 +57,7 @@ function ETRVInfo() {
             maxpeople={e.maxpeople}
             placeid={e.placeid}
             date={e.date}
+            deleteMyRoom={deleteMyRoom}
           />
         );
       })}
