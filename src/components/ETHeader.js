@@ -30,11 +30,6 @@ function ETHeader({ name }) {
   function otherHeader() {
     return (
       <>
-        {/* <Link to="/ETMain">
-          <span className="material-symbols-outlined other-back">
-            chevron_left
-          </span>
-        </Link> */}
         <Link to="/ETMain">
           <img className="ETMain-Logo" src={Logo}></img>
         </Link>
