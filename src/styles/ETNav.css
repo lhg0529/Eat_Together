@@ -1,9 +1,12 @@
 .nav {
-  display: flex;
-  position: absolute;
   width: 100%;
+  max-width: 500px;
+  display: flex;
+  position: fixed;
   bottom: 0;
   flex-wrap: wrap;
+  z-index: 5;
+  background-color: white;
 }
 .nav .container .material-symbols-outlined {
   padding: 10px;

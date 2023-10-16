@@ -10,7 +10,7 @@
 .inner {
   margin: 0 auto;
   width: 500px;
-  min-height: 100vb;
+  min-height: 100vh;
   background-color: white;
   position: relative;
 }
@@ -19,4 +19,7 @@ a {
 }
 a:visited {
   color: black;
+}
+.dumy {
+  height: 120px;
 }

@@ -1,0 +1,38 @@
+.modal-background {
+  background-color: rgba(91, 91, 91, 0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.modal-input-container {
+  width: 300px;
+  background-color: white;
+  margin: 80px auto;
+  padding: 20px;
+  border-radius: 15px;
+}
+.modal-header {
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.modal-body {
+  margin: 10px 0;
+}
+.modal-body-input-name {
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.modal-create-room-btn {
+  height: 30px;
+  width: 100%;
+  margin: 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: tomato;
+  border-radius: 15px;
+  color: white;
+}

@@ -65,6 +65,30 @@
       "roomname": "우동 먹자",
       "maxpeople": 5,
       "date": "2023-10-10 12:30:00"
+    },
+    {
+      "id": 2,
+      "placeid": 0,
+      "hostid": 2,
+      "roomname": "모여서 먹자",
+      "maxpeople": 5,
+      "date": "2023-10-11 12:30:00"
+    },
+    {
+      "placeid": "1",
+      "hostid": 2,
+      "roomname": "test",
+      "maxpeople": 3,
+      "date": "0000. 00. 00. 오전 0:00:00",
+      "id": 3
+    },
+    {
+      "placeid": "1",
+      "hostid": 2,
+      "roomname": "밥밥",
+      "maxpeople": "2",
+      "date": "2023-10-16T13:10",
+      "id": 4
     }
   ],
   "joiner": [
@@ -82,6 +106,31 @@
       "id": 2,
       "userid": 1,
       "roomid": 1
+    },
+    {
+      "userid": 2,
+      "roomid": 3,
+      "id": 3
+    },
+    {
+      "userid": 2,
+      "roomid": 2,
+      "id": 4
+    },
+    {
+      "userid": 2,
+      "roomid": 1,
+      "id": 5
+    },
+    {
+      "userid": 2,
+      "roomid": 0,
+      "id": 6
+    },
+    {
+      "roomid": 4,
+      "userid": 2,
+      "id": 7
     }
   ]
 }

@@ -7,17 +7,20 @@ import axios from 'axios';
 import { JSON_SERVER } from '../JsonConfig';
 import '../styles/ETSearchplace.css';
 import Room from '../components/Room';
+import CreateRoom from '../components/CreateRoom';
 
 function ETSearchplace() {
   const placeID = useParams().key1;
   const [rooms, setRooms] = useState([]);
   const [thisPlace, setThisPlace] = useState({});
+  const [isCreateRoom, setIsCreateRoom] = useState(false);
 
   async function fetchData(f) {
     const place = (await axios.get(JSON_SERVER + `/place?id=${placeID}`).then())
       .data;
     if (place.length > 0) {
       const placeData = place[0];
+      console.log(placeData);
       setThisPlace(placeData);
       if (f && typeof f === 'function') {
         f(placeData); // Pass placeData to the callback
@@ -40,6 +43,11 @@ function ETSearchplace() {
 
   return (
     <div>
+      {isCreateRoom ? (
+        <CreateRoom placeid={placeID} setIsCreateRoom={setIsCreateRoom} />
+      ) : (
+        <></>
+      )}
       <ETHeader name={thisPlace.Placename}></ETHeader>
       <Kakaomap
         address={thisPlace.Address}
@@ -64,7 +72,18 @@ function ETSearchplace() {
           />
         );
       })}
-
+      <div className="floating-btn">
+        <div className="create-room">
+          <div
+            className="create-room-text"
+            onClick={() => {
+              setIsCreateRoom(true);
+            }}
+          >
+            방 만들기
+          </div>
+        </div>
+      </div>
       <ETNav></ETNav>
     </div>
   );

@@ -6,30 +6,48 @@ import { JSON_SERVER } from '../JsonConfig';
 function Room({ id, roomname, placeid, date, maxpeople }) {
   const [place, setPlace] = useState([]);
   const [joiner, setJoiner] = useState([]);
+  const [joinCompleted, setJoinCompleted] = useState(false);
+  const [fullRoom, setFullRoom] = useState(false);
+  const [joinerCount, setJoinerCount] = useState(0);
+  const localUser = JSON.parse(localStorage.getItem('user'));
 
+  //방 지역 데이터
   async function fetchPlaceData() {
-    const array = await axios.get(JSON_SERVER + `/place?id=${placeid}`).then();
-    console.log('룸컴포넌트 place');
-    console.log(array);
+    const array = await axios.get(JSON_SERVER + `/place?id=${placeid}`);
+    // array.data
     setPlace(array.data);
+    fetchJoinerData();
   }
+
+  //방에 참여한 인원 데이터
   async function fetchJoinerData() {
-    axios
-      .get(JSON_SERVER + `/joiner?roomid=${id}`)
-      .then(function (e) {
-        setJoiner(e.data);
-      })
-      .catch(function (error) {
-        if (error.response) {
-          console.log(error.response);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log('Error', error.message);
-        }
-        console.log(error.config);
-      });
+    const fetchData = await axios.get(JSON_SERVER + `/joiner?roomid=${id}`);
+    setJoiner(fetchData.data);
+    setJoinerCount(fetchData.data.length);
   }
+  function postJoinRoom() {
+    const postData = {
+      userid: localUser.id,
+      roomid: id,
+    };
+    axios.post(JSON_SERVER + `/joiner`, postData);
+  }
+
+  //joiner에 본인이 포함되어 있는지
+  function checkCanIJoin() {
+    setJoinCompleted(
+      !(joiner.find((e) => e.userid === localUser.id) === undefined)
+    );
+    checkFullRoom();
+  }
+  function checkFullRoom() {
+    setFullRoom(joinerCount >= maxpeople ? true : false);
+  }
+
+  useEffect(() => {
+    checkCanIJoin();
+  }, [joiner]);
+
   function findAddress() {
     if (place.length > 0) {
       return place[0].Address;
@@ -40,14 +58,19 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
   function joinRoom() {
     const a = localStorage.getItem('user');
     if (a) {
-      console.log('조인하기');
+      //조인 완료
+      console.log('asdf');
+      postJoinRoom();
+      setJoinerCount(joinerCount + 1);
+      checkFullRoom();
+      setJoinCompleted(true);
     } else {
+      //조인 실패
       console.log('로그인으로');
     }
   }
   useEffect(() => {
     fetchPlaceData();
-    fetchJoinerData();
   }, []);
   return (
     <div className="room-item-container">
@@ -59,11 +82,17 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
       <div className="join-btn-container">
         <div className="square-button-container">
           <div className="max-people">
-            {joiner.length} / {maxpeople}
+            {joinerCount} / {maxpeople}
           </div>
         </div>
-        <button className="square-button" onClick={joinRoom}>
-          같이 먹기
+        <button
+          className={`square-button ${
+            joinCompleted || fullRoom ? 'active' : ''
+          }`}
+          onClick={joinRoom}
+          disabled={joinCompleted || fullRoom}
+        >
+          {fullRoom ? '정원 초과' : joinCompleted ? '참여 완료' : '같이 먹기'}
         </button>
       </div>
     </div>

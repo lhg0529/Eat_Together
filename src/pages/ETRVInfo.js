@@ -7,34 +7,48 @@ import { JSON_SERVER } from '../JsonConfig';
 import RVInfoItem from '../components/RVInfoItem';
 
 function ETRVInfo() {
-  const [rooms, setRooms] = useState([]);
+  const [myRooms, setMyRooms] = useState([]);
+  const [joinerData, setJoinerData] = useState([]);
+  const localUser = JSON.parse(localStorage.getItem('user'));
 
-  async function fetchRoomData() {
-    axios
-      .get(JSON_SERVER + '/room')
-      .then(function (e) {
-        setRooms(e.data);
-        console.log(e.data);
-      })
-      .catch(function (error) {
-        if (error.response) {
-          console.log(error.response);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log('Error', error.message);
-        }
-        console.log(error.config);
-      });
+  async function fetchJoinerData() {
+    const joinerData = await axios.get(
+      JSON_SERVER + `/joiner?userid=${localUser.id}`
+    );
+    setJoinerData(joinerData.data);
   }
+  async function fetchMyRoom() {
+    let tempRoomData = ''; // 변경: 빈 문자열로 초기화
+    let first = true; // 변경: first 변수 초기화
+
+    joinerData.map((e) => {
+      if (first) {
+        tempRoomData += `id=${e.roomid}`;
+        first = false; // 변경: first 값을 false로 설정
+      } else {
+        tempRoomData += `&id=${e.roomid}`;
+      }
+    });
+    const roomData = await axios.get(JSON_SERVER + `/room?${tempRoomData}`);
+    setMyRooms(roomData.data);
+  }
+  function deleteMyRoom(id) {
+    const newArr = myRooms.filter((e) => e.id !== id);
+    setMyRooms(newArr);
+  }
+  useEffect(() => {}, [myRooms]);
   useEffect(() => {
-    fetchRoomData();
+    fetchMyRoom();
+  }, [joinerData]);
+
+  useEffect(() => {
+    fetchJoinerData();
   }, []);
   return (
     <div>
-      <ETHeader />
+      <ETHeader name="내 예약 리스트" />
       <h1 className="rvinfo-header">현재 예약 리스트</h1>
-      {rooms.map((e, i) => {
+      {myRooms.map((e, i) => {
         return (
           <RVInfoItem
             key={i}
@@ -43,6 +57,7 @@ function ETRVInfo() {
             maxpeople={e.maxpeople}
             placeid={e.placeid}
             date={e.date}
+            deleteMyRoom={deleteMyRoom}
           />
         );
       })}
