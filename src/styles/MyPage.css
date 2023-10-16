@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.user-info {
+.mypage-user-info {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,28 +13,39 @@
   box-sizing: border-box;
 }
 
-.info-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
-  padding: 15px 0;
+.mypage-info-item {
+  display: block;  /* 각 아이템을 블록 요소로 만듭니다. */
+  margin-bottom: 60px;  /* 아래쪽 여백을 추가하여 아이템들 사이에 간격을 줍니다. */
 }
 
-.label {
+.mypage-info-label {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
+  color: gray;
+  font-weight:300;
+  margin-bottom: 10px;
+  display: block;
 }
 
-.value {
-  font-size: 16px;
+.mypage-info-value {
+  font-size: 30px;
+  margin-top: 20px;
+  display: block;
 }
 
 .logout-link {
-  cursor: pointer; /* 마우스 아이콘을 '손가락' 모양으로 변경 */
-  transition: color 0.3s ease; /* 부드러운 색상 전환 효과 */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-align: center;
+  color:white;
+  display: inline-block; /* 이를 통해 버튼 형태의 크기를 텍스트에 맞춤 */
+  padding: 10px 20px; /* 버튼 내부의 패딩을 추가 */
+  background-color: #c9c9c9; /* 버튼의 배경색 */
+  border-radius: 5px; /* 버튼의 모서리를 둥글게 */
+  margin: 10px auto; /* 중앙에 배치 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
 }
 
 .logout-link:hover {
-  color: blue; /* 예: 마우스를 갖다대면 글자 색상을 파란색으로 변경 */
+  background-color: #525252; /* 호버 효과로 배경색을 약간 어둡게 */
 }

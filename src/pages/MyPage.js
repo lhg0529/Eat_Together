@@ -36,24 +36,24 @@ function MyPage() {
     <div>
       <ETHeader />
       <div className="mypage-container">
-      <div className="user-info">
-        <div className="info-item">
-          <span className="label">아이디</span>
-          <span className="value">{userData.username}</span>
-        </div>
-        <div className="info-item">
-          <span className="label">닉네임</span>
-          <span className="value">{userData.nickname}</span>
-        </div>
-        <div className="info-item">
-          <span className="label">이름</span>
-          <span className="value">{userData.name}</span>
+        <div className="mypage-user-info">
+          <div className="mypage-info-item">
+            <span className="mypage-info-label">아이디</span>
+            <span className="mypage-info-value">{userData.username}</span>
+          </div>
+          <div className="mypage-info-item">
+            <span className="mypage-info-label">닉네임</span>
+            <span className="mypage-info-value">{userData.nickname}</span>
+          </div>
+          <div className="mypage-info-item">
+            <span className="mypage-info-label">이름</span>
+            <span className="mypage-info-value">{userData.name}</span>
+          </div>
         </div>
         <div onClick={handleLogout} className="logout-link">
           로그아웃
         </div>
       </div>
-    </div>
       <ETNav />
     </div>
   );
