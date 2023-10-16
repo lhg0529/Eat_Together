@@ -73,46 +73,6 @@
       "roomname": "모여서 먹자",
       "maxpeople": 5,
       "date": "2023-10-11 12:30:00"
-    },
-    {
-      "placeid": "0",
-      "hostid": 2,
-      "roomname": "test",
-      "maxpeople": 3,
-      "date": "0000. 00. 00. 오전 0:00:00",
-      "id": 3
-    },
-    {
-      "placeid": "1",
-      "hostid": 2,
-      "roomname": "test",
-      "maxpeople": 3,
-      "date": "0000. 00. 00. 오전 0:00:00",
-      "id": 4
-    },
-    {
-      "placeid": "0",
-      "hostid": 2,
-      "roomname": "test",
-      "maxpeople": 3,
-      "date": "0000. 00. 00. 오전 0:00:00",
-      "id": 5
-    },
-    {
-      "placeid": "1",
-      "hostid": 2,
-      "roomname": "test",
-      "maxpeople": 3,
-      "date": "0000. 00. 00. 오전 0:00:00",
-      "id": 6
-    },
-    {
-      "placeid": "1",
-      "hostid": 2,
-      "roomname": "밥 먹자고",
-      "maxpeople": "5",
-      "date": "2023-10-27T12:59",
-      "id": 7
     }
   ],
   "joiner": [
@@ -140,11 +100,6 @@
       "id": 4,
       "userid": 2,
       "roomid": 1
-    },
-    {
-      "id": 5,
-      "userid": 2,
-      "roomid": 0
     }
   ]
 }

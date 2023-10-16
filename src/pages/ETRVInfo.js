@@ -46,7 +46,7 @@ function ETRVInfo() {
   }, []);
   return (
     <div>
-      <ETHeader />
+      <ETHeader name="내 예약 리스트" />
       <h1 className="rvinfo-header">현재 예약 리스트</h1>
       {myRooms.map((e, i) => {
         return (

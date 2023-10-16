@@ -37,7 +37,7 @@ function ETSearch() {
   const [isShow, setIsShow] = useState(false);
   return (
     <div>
-      <ETHeader />
+      <ETHeader name="찾기" />
       <section className="search-section">
         <div
           className="categori"
