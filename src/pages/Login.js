@@ -42,7 +42,7 @@ function Login() {
           return;
         }
           
-        // password를 제거한 후 저장
+        // password를 제거한 후 로컬스토리지에 데이터 저장
         const userToStore = { ...user };
         delete userToStore.password;
         
@@ -55,26 +55,34 @@ function Login() {
         alert('로그인 중 오류 발생');
       });
   }
+  
+  // 아이디 비밀번호 입력 후 엔터 키 감지하여 로그인하기
+  function handleKeyUp(event) {
+    if (event.key === 'Enter') {
+      handleLogin();
+    }
+  }
+
   return (
     <div className="login-outer-container">
         <p className="welcome-text">함께 먹는 즐거움</p>
         <h1>Eat Together</h1>
           <div className="logo">
-            <Link to="/ETMain">
               <img src={logo} alt="ET Logo" />
-            </Link>
           </div>
         <input
           type="text"
           placeholder="아이디"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          onKeyUp={handleKeyUp}
         />
         <input
           type="password"
           placeholder="비밀번호"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          onKeyUp={handleKeyUp}
         />
         <button className="login-btn" onClick={handleLogin}>
           로그인
