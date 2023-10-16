@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "name": "이름",
-      "nickname": "닉네임",
+      "name": "내이름",
+      "nickname": "내닉네임",
       "username": "lhg0529",
       "password": "qlalf1234",
       "admin": false,
@@ -31,6 +31,14 @@
       "password": "qlqjs123",
       "admin": false,
       "id": 4
+    },
+    {
+      "name": "myName",
+      "nickname": "IsNick",
+      "username": "dkel12",
+      "password": "qlqjs123",
+      "admin": false,
+      "id": 0
     }
   ],
   "place": [
@@ -51,86 +59,101 @@
   ],
   "room": [
     {
-      "id": 0,
       "placeid": 0,
-      "hostid": 0,
-      "roomname": "점심 먹을사람",
-      "maxpeople": 4,
-      "date": "2023-10-09 12:00:00"
+      "hostid": 2,
+      "roomname": "맥날 먹을사람",
+      "maxpeople": "3",
+      "date": "2023-12-31T12:59",
+      "id": 0
     },
     {
-      "id": 1,
+      "placeid": 0,
+      "hostid": 2,
+      "roomname": "빅맥",
+      "maxpeople": "2",
+      "date": "2023-12-31T12:59",
+      "id": 2
+    },
+    {
       "placeid": 1,
-      "hostid": 1,
-      "roomname": "우동 먹자",
-      "maxpeople": 5,
-      "date": "2023-10-10 12:30:00"
-    },
-    {
-      "id": 2,
-      "placeid": 0,
       "hostid": 2,
-      "roomname": "모여서 먹자",
-      "maxpeople": 5,
-      "date": "2023-10-11 12:30:00"
-    },
-    {
-      "placeid": "1",
-      "hostid": 2,
-      "roomname": "test",
-      "maxpeople": 3,
-      "date": "0000. 00. 00. 오전 0:00:00",
+      "roomname": "우동이다",
+      "maxpeople": "3",
+      "date": "2023-12-31T12:59",
       "id": 3
     },
     {
-      "placeid": "1",
+      "placeid": 1,
       "hostid": 2,
-      "roomname": "밥밥",
-      "maxpeople": "2",
-      "date": "2023-10-16T13:10",
+      "roomname": "덮밥",
+      "maxpeople": "3",
+      "date": "2023-12-31T12:59",
+      "id": 1
+    },
+    {
+      "placeid": 0,
+      "hostid": 2,
+      "roomname": "마그도나르도",
+      "maxpeople": "4",
+      "date": "2023-12-31T12:59",
       "id": 4
     }
   ],
   "joiner": [
     {
-      "id": 0,
-      "userid": 0,
-      "roomid": 0
-    },
-    {
-      "id": 1,
-      "userid": 1,
-      "roomid": 0
-    },
-    {
-      "id": 2,
-      "userid": 1,
-      "roomid": 1
-    },
-    {
+      "roomid": 1,
       "userid": 2,
+      "id": 1
+    },
+    {
       "roomid": 3,
+      "userid": 2,
       "id": 3
     },
     {
+      "roomid": 0,
       "userid": 2,
-      "roomid": 2,
       "id": 4
     },
     {
       "userid": 2,
-      "roomid": 1,
+      "roomid": 2,
       "id": 5
-    },
-    {
-      "userid": 2,
-      "roomid": 0,
-      "id": 6
     },
     {
       "roomid": 4,
       "userid": 2,
+      "id": 6
+    },
+    {
+      "userid": 1,
+      "roomid": 0,
       "id": 7
+    },
+    {
+      "userid": 1,
+      "roomid": 2,
+      "id": 8
+    },
+    {
+      "userid": 1,
+      "roomid": 3,
+      "id": 9
+    },
+    {
+      "userid": 4,
+      "roomid": 0,
+      "id": 10
+    },
+    {
+      "userid": 4,
+      "roomid": 3,
+      "id": 11
+    },
+    {
+      "userid": 4,
+      "roomid": 1,
+      "id": 12
     }
   ]
 }

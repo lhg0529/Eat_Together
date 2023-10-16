@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/CreateRoom.css';
 import axios from 'axios';
 import { JSON_SERVER } from '../JsonConfig';
+import { useNavigate } from 'react-router-dom';
 
 function CreateRoom({ placeid, setIsCreateRoom, userid }) {
   const [roomName, setRoomName] = useState('test');
@@ -10,23 +11,19 @@ function CreateRoom({ placeid, setIsCreateRoom, userid }) {
   const [resBody, setResBody] = useState({});
   const [isRoomCreated, setIsRoomCreated] = useState(false);
   const localUser = JSON.parse(localStorage.getItem('user'));
+  const navigate = useNavigate();
 
-  function postCreateRoom() {
-    axios
-      .post(JSON_SERVER + `/room`, {
-        placeid: placeid,
-        hostid: localUser.id,
-        roomname: roomName,
-        maxpeople: maxPeople,
-        date: RVDate,
-      })
-      .then((res) => {
-        setResBody(res.data);
-        setIsRoomCreated(true);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  async function postCreateRoom() {
+    const roomInfo = {
+      placeid: parseInt(placeid),
+      hostid: localUser.id,
+      roomname: roomName,
+      maxpeople: maxPeople,
+      date: RVDate,
+    };
+    const res = await axios.post(JSON_SERVER + `/room`, roomInfo);
+    setResBody(res.data);
+    setIsRoomCreated(true);
   }
   function postJoinerInfo() {
     const tempUserId = localUser.id;
@@ -35,15 +32,17 @@ function CreateRoom({ placeid, setIsCreateRoom, userid }) {
       userid: tempUserId, // 변경된 부분: userids -> userid
     };
     if (isRoomCreated) {
-      axios.post(JSON_SERVER + `/joiner`, userInfo).finally(() => {
-        setIsCreateRoom(false);
-      });
+      axios.post(JSON_SERVER + `/joiner`, userInfo);
+      alert('방 생성이 완료되었습니다');
+      navPage();
     }
   }
-
+  function navPage() {
+    navigate(`/Roominfomation/${resBody.id}`);
+  }
   useEffect(() => {
     postJoinerInfo();
-  }, [isRoomCreated]);
+  }, [resBody]);
   return (
     <div className="modal-background">
       <div className="modal-input-container">

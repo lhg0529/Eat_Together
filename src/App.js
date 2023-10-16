@@ -6,8 +6,9 @@ import Register from './pages/Register';
 import ETMain from './pages/ETMain';
 import ETSearch from './pages/ETSearch';
 import ETSearchplace from './pages/ETSearchplace';
-import MyPage from './pages/MyPage'
+import MyPage from './pages/MyPage';
 import ETRVInfo from './pages/ETRVInfo';
+import RoomInfo from './pages/RoomInfo';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           <Route path="/ETSearch" element={<ETSearch />}></Route>
           <Route path="/ETSearch/:key1" element={<ETSearchplace />}></Route>
           <Route path="/MyPage" element={<MyPage />}></Route>
+          <Route path="/ETRVInfo" element={<ETRVInfo />}></Route>
+          <Route path="/Roominfomation/:key1" element={<RoomInfo />}></Route>
         </Routes>
         <div className="dumy"></div>
       </div>

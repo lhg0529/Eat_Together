@@ -9,37 +9,25 @@ function RVInfoItem({ id, roomname, maxpeople, placeid, date, deleteMyRoom }) {
   const [place, setPlace] = useState({});
   const localUser = JSON.parse(localStorage.getItem('user'));
 
-  async function fetchJoinUser(userid) {
-    await axios.get(JSON_SERVER + `/users?id=${userid}`).then((response) => {
-      const userData = response.data[0];
-      setJoinUser((prevJoinUser) => [...prevJoinUser, userData.nickname]);
-    });
-  }
   async function fetchPlaceData() {
-    axios
-      .get(JSON_SERVER + `/place?id=${placeid}`)
-      .then(function (e) {
-        setPlace(e.data[0]);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    const data = await axios.get(JSON_SERVER + `/place?id=${placeid}`);
+    setPlace(data.data[0]);
   }
 
-  async function fetchJoinerData(f) {
+  async function fetchJoinerData() {
     const data = await axios.get(JSON_SERVER + `/joiner?roomid=${id}`);
-    const joinerData = data.data;
-    setJoinUserId(joinerData);
-    if (f && typeof f === 'function') {
-      if (joinerData.length > 0) {
-        const userIds = joinerData.map((joiner) => joiner.userid);
-        userIds.forEach((userId) => {
-          fetchJoinUser(userId);
-        });
-      }
-    }
+    setJoinUserId(data.data);
+  }
+  async function fetchJoinerNickname() {
+    let str = '';
+    joinUserId.forEach((e) => {
+      str += `id=${e.userid}&`;
+    });
+    const data = await axios.get(JSON_SERVER + `/users?${str}`);
+    setJoinUser(data.data);
   }
   async function deleteJoinerData(roomId) {
+    console.log(roomId + '이랑 ' + localUser.id);
     try {
       const joinerData = await axios.get(
         JSON_SERVER + `/joiner?roomid=${roomId}&userid=${localUser.id}`
@@ -48,7 +36,6 @@ function RVInfoItem({ id, roomname, maxpeople, placeid, date, deleteMyRoom }) {
         console.log('데이터를 찾을 수 없습니다.');
         return;
       }
-
       const joinerIdToDelete = joinerData.data[0].id;
 
       await axios.delete(JSON_SERVER + `/joiner/${joinerIdToDelete}`);
@@ -57,10 +44,15 @@ function RVInfoItem({ id, roomname, maxpeople, placeid, date, deleteMyRoom }) {
       console.error('데이터 삭제 중 오류가 발생했습니다.', error);
     }
   }
-
+  function deleteRoom() {
+    axios.delete(JSON_SERVER + `/room/${id}`);
+  }
+  useEffect(() => {
+    fetchJoinerNickname();
+  }, [joinUserId]);
   useEffect(() => {
     fetchPlaceData();
-    fetchJoinerData(fetchJoinUser);
+    fetchJoinerData();
   }, []);
   return (
     <div className="room-container">
@@ -78,9 +70,8 @@ function RVInfoItem({ id, roomname, maxpeople, placeid, date, deleteMyRoom }) {
         <div className="room-joiner">
           <div className="room-joiner-info">참여자</div>
           {joinUser.map((e, i) => {
-            return <div key={i}>{e}</div>;
+            return <div key={i}>{e.nickname}</div>;
           })}
-          {/* <div>User1</div> */}
         </div>
         <div className="room-time">
           <div className="room-time-info">시간</div>
@@ -92,6 +83,9 @@ function RVInfoItem({ id, roomname, maxpeople, placeid, date, deleteMyRoom }) {
         onClick={() => {
           deleteJoinerData(id);
           deleteMyRoom(id);
+          if (joinUserId.length === 1) {
+            deleteRoom();
+          }
         }}
       >
         방 나가기

@@ -30,13 +30,17 @@ function ETRVInfo() {
       }
     });
     const roomData = await axios.get(JSON_SERVER + `/room?${tempRoomData}`);
-    setMyRooms(roomData.data);
+    if (joinerData.length > 0) {
+      setMyRooms(roomData.data);
+    }
   }
   function deleteMyRoom(id) {
     const newArr = myRooms.filter((e) => e.id !== id);
     setMyRooms(newArr);
   }
-  useEffect(() => {}, [myRooms]);
+  useEffect(() => {
+    console.log(myRooms);
+  }, [myRooms]);
   useEffect(() => {
     fetchMyRoom();
   }, [joinerData]);
