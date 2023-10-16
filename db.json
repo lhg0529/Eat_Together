@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "name": "내이름",
-      "nickname": "내닉네임",
+      "name": "이름",
+      "nickname": "닉네임",
       "username": "lhg0529",
       "password": "qlalf1234",
       "admin": false,
@@ -31,14 +31,6 @@
       "password": "qlqjs123",
       "admin": false,
       "id": 4
-    },
-    {
-      "name": "myName",
-      "nickname": "IsNick",
-      "username": "dkel12",
-      "password": "qlqjs123",
-      "admin": false,
-      "id": 0
     }
   ],
   "place": [
@@ -57,103 +49,6 @@
       "GridY": 127.109279
     }
   ],
-  "room": [
-    {
-      "placeid": 0,
-      "hostid": 2,
-      "roomname": "맥날 먹을사람",
-      "maxpeople": "3",
-      "date": "2023-12-31T12:59",
-      "id": 0
-    },
-    {
-      "placeid": 0,
-      "hostid": 2,
-      "roomname": "빅맥",
-      "maxpeople": "2",
-      "date": "2023-12-31T12:59",
-      "id": 2
-    },
-    {
-      "placeid": 1,
-      "hostid": 2,
-      "roomname": "우동이다",
-      "maxpeople": "3",
-      "date": "2023-12-31T12:59",
-      "id": 3
-    },
-    {
-      "placeid": 1,
-      "hostid": 2,
-      "roomname": "덮밥",
-      "maxpeople": "3",
-      "date": "2023-12-31T12:59",
-      "id": 1
-    },
-    {
-      "placeid": 0,
-      "hostid": 2,
-      "roomname": "마그도나르도",
-      "maxpeople": "4",
-      "date": "2023-12-31T12:59",
-      "id": 4
-    }
-  ],
-  "joiner": [
-    {
-      "roomid": 1,
-      "userid": 2,
-      "id": 1
-    },
-    {
-      "roomid": 3,
-      "userid": 2,
-      "id": 3
-    },
-    {
-      "roomid": 0,
-      "userid": 2,
-      "id": 4
-    },
-    {
-      "userid": 2,
-      "roomid": 2,
-      "id": 5
-    },
-    {
-      "roomid": 4,
-      "userid": 2,
-      "id": 6
-    },
-    {
-      "userid": 1,
-      "roomid": 0,
-      "id": 7
-    },
-    {
-      "userid": 1,
-      "roomid": 2,
-      "id": 8
-    },
-    {
-      "userid": 1,
-      "roomid": 3,
-      "id": 9
-    },
-    {
-      "userid": 4,
-      "roomid": 0,
-      "id": 10
-    },
-    {
-      "userid": 4,
-      "roomid": 3,
-      "id": 11
-    },
-    {
-      "userid": 4,
-      "roomid": 1,
-      "id": 12
-    }
-  ]
+  "room": [],
+  "joiner": []
 }
