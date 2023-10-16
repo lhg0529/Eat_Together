@@ -1,0 +1,51 @@
+.mypage-container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mypage-user-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.mypage-info-item {
+  display: block;  /* 각 아이템을 블록 요소로 만듭니다. */
+  margin-bottom: 60px;  /* 아래쪽 여백을 추가하여 아이템들 사이에 간격을 줍니다. */
+}
+
+.mypage-info-label {
+  font-weight: bold;
+  font-size: 20px;
+  color: gray;
+  font-weight:300;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.mypage-info-value {
+  font-size: 30px;
+  margin-top: 20px;
+  display: block;
+}
+
+.logout-link {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-align: center;
+  color:white;
+  display: inline-block; /* 이를 통해 버튼 형태의 크기를 텍스트에 맞춤 */
+  padding: 10px 20px; /* 버튼 내부의 패딩을 추가 */
+  background-color: #c9c9c9; /* 버튼의 배경색 */
+  border-radius: 5px; /* 버튼의 모서리를 둥글게 */
+  margin: 10px auto; /* 중앙에 배치 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
+}
+
+.logout-link:hover {
+  background-color: #525252; /* 호버 효과로 배경색을 약간 어둡게 */
+}

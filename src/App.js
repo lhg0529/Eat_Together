@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import ETMain from './pages/ETMain';
 import ETSearch from './pages/ETSearch';
 import ETSearchplace from './pages/ETSearchplace';
+import MyPage from './pages/MyPage'
 import ETRVInfo from './pages/ETRVInfo';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
           <Route path="/ETMain" element={<ETMain />}></Route>
           <Route path="/ETSearch" element={<ETSearch />}></Route>
           <Route path="/ETSearch/:key1" element={<ETSearchplace />}></Route>
-          <Route path="/ETRVInfo" element={<ETRVInfo />}></Route>
+          <Route path="/MyPage" element={<MyPage />}></Route>
         </Routes>
         <div className="dumy"></div>
       </div>

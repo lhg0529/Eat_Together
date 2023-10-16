@@ -29,7 +29,7 @@ function Register() {
     //유효성 검사 시작
     if (!nameRegex.test(name)) {
       alert(
-        '이름은 2~10자리로 한글 또는 영어만 입력해 주세요.          한글 자음, 모음 형태(ㅋㅋ, ㅜㅜ)는 불가'
+        '이름은 2~10자리로 한글 또는 영어만 입력해 주세요.\n한글 자음, 모음 형태(ㅋㅋ, ㅜㅜ)는 불가'
       );
       return;
     }
@@ -85,33 +85,38 @@ function Register() {
 
   return (
     <div className="register-container">
-      <h1>Eat Together에 오신 것을 환영합니다</h1>
+      <h1><span className="textRed">Eat Together </span>에 오신 것을 환영합니다</h1>
       <h2>회원가입</h2>
       <FloatingLabelInput
+        className="register-input-container"
         type="text"
         label="이름 (2~10자리, 한글 또는 영어만)"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <FloatingLabelInput
+        className="register-input-container"
         type="text"
         label="닉네임 (2~12자리)"
         value={nickname}
         onChange={(e) => setNickname(e.target.value)}
       />
       <FloatingLabelInput
+        className="register-input-container"
         type="text"
         label="아이디(영문, 숫자 조합 6~12자리)"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <FloatingLabelInput
+        className="register-input-container"
         type="password"
         label="비밀번호(영문, 숫자 조합 8~16자리)"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <FloatingLabelInput
+        className="register-input-container"
         type="password"
         label="비밀번호 확인"
         value={confirmPassword}
