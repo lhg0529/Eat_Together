@@ -42,10 +42,10 @@ function Login() {
           return;
         }
           
-        // password와 id를 제거한 후 저장
+        // password를 제거한 후 저장
         const userToStore = { ...user };
         delete userToStore.password;
-        delete userToStore.id;
+        
         
         localStorage.setItem('user', JSON.stringify(userToStore)); //로컬 스토리지에 사용자 정보 저장
           setIsLoggedIn(true);
