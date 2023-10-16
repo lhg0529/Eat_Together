@@ -2,6 +2,9 @@
   display: flex;
   align-items: center;
   background-color: white;
+  border-bottom: solid 1px #ccc;
+  margin: 0 0 10px 0;
+  box-sizing: border-box;
 }
 .ETMain-Logo {
   width: 60px;
@@ -15,11 +18,9 @@
   justify-content: center;
   background-color: white;
   height: 40px;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 20px;
   border: solid 1px #ccc;
+  margin: 0 10px;
 }
 .search {
   margin: 4px 15px 4px 0px;

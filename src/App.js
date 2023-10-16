@@ -7,6 +7,7 @@ import ETMain from './pages/ETMain';
 import ETSearch from './pages/ETSearch';
 import ETSearchplace from './pages/ETSearchplace';
 import MyPage from './pages/MyPage'
+import ETRVInfo from './pages/ETRVInfo';
 
 function App() {
   return (
