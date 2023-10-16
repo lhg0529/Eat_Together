@@ -7,6 +7,8 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
   const [place, setPlace] = useState([]);
   const [joiner, setJoiner] = useState([]);
   const [joinCompleted, setJoinCompleted] = useState(false);
+  const [fullRoom, setFullRoom] = useState(false);
+  const [joinerCount, setJoinerCount] = useState(0);
   const localUser = JSON.parse(localStorage.getItem('user'));
 
   //방 지역 데이터
@@ -21,7 +23,7 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
   async function fetchJoinerData() {
     const fetchData = await axios.get(JSON_SERVER + `/joiner?roomid=${id}`);
     setJoiner(fetchData.data);
-    // console.log(joiner);
+    setJoinerCount(fetchData.data.length);
   }
   function postJoinRoom() {
     const postData = {
@@ -32,14 +34,18 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
   }
 
   //joiner에 본인이 포함되어 있는지
-  function searchJoinerInMyId() {
+  function checkCanIJoin() {
     setJoinCompleted(
       !(joiner.find((e) => e.userid === localUser.id) === undefined)
     );
+    checkFullRoom();
+  }
+  function checkFullRoom() {
+    setFullRoom(joinerCount >= maxpeople ? true : false);
   }
 
   useEffect(() => {
-    searchJoinerInMyId();
+    checkCanIJoin();
   }, [joiner]);
 
   function findAddress() {
@@ -52,8 +58,14 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
   function joinRoom() {
     const a = localStorage.getItem('user');
     if (a) {
+      //조인 완료
+      console.log('asdf');
       postJoinRoom();
+      setJoinerCount(joinerCount + 1);
+      checkFullRoom();
+      setJoinCompleted(true);
     } else {
+      //조인 실패
       console.log('로그인으로');
     }
   }
@@ -70,15 +82,17 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
       <div className="join-btn-container">
         <div className="square-button-container">
           <div className="max-people">
-            {joiner.length} / {maxpeople}
+            {joinerCount} / {maxpeople}
           </div>
         </div>
         <button
-          className={`square-button ${joinCompleted ? 'active' : ''}`}
+          className={`square-button ${
+            joinCompleted || fullRoom ? 'active' : ''
+          }`}
           onClick={joinRoom}
-          disabled={joinCompleted}
+          disabled={joinCompleted || fullRoom}
         >
-          {joinCompleted ? '참여 완료' : '같이 먹기'}
+          {fullRoom ? '정원 초과' : joinCompleted ? '참여 완료' : '같이 먹기'}
         </button>
       </div>
     </div>
