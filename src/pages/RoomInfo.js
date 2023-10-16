@@ -15,7 +15,6 @@ function RoomInfo() {
   const [placeAddr, setPlaceAddr] = useState('');
   const [placeDate, setPlaceDate] = useState('');
   const [room, setRoom] = useState({});
-  const localUser = JSON.parse(localStorage.getItem('user'));
 
   async function fetchRoomData() {
     try {

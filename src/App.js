@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import Demo from './pages/Demo';
 import Login from './pages/Login';
@@ -9,8 +9,19 @@ import ETSearchplace from './pages/ETSearchplace';
 import MyPage from './pages/MyPage';
 import ETRVInfo from './pages/ETRVInfo';
 import RoomInfo from './pages/RoomInfo';
+import { useEffect } from 'react';
 
 function App() {
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localUser) {
+      navigate('/ETMain');
+    } else {
+      navigate('/Login');
+    }
+  }, []);
   return (
     <div className="App">
       <div className="inner">
