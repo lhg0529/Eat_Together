@@ -1,36 +1,28 @@
 {
   "users": [
     {
-      "name": "이름",
-      "nickname": "닉네임",
-      "username": "lhg0529",
-      "password": "qlalf1234",
+      "name": "김가네",
+      "nickname": "가가가",
+      "username": "qwer1234",
+      "password": "qwer1234",
       "admin": false,
       "id": 1
     },
     {
-      "name": "해인스",
-      "nickname": "인스님",
-      "username": "haein121",
-      "password": "haein121",
+      "name": "이가네",
+      "nickname": "나나나",
+      "username": "asdf1234",
+      "password": "asdf1234",
       "admin": false,
       "id": 2
     },
     {
-      "name": "이름",
-      "nickname": "닉네임",
-      "username": "dkdlel1",
-      "password": "qlalf123",
+      "name": "박가네",
+      "nickname": "다다다",
+      "username": "zxcv1234",
+      "password": "zxcv1234",
       "admin": false,
       "id": 3
-    },
-    {
-      "name": "름이",
-      "nickname": "임네닉",
-      "username": "dkel12",
-      "password": "qlqjs123",
-      "admin": false,
-      "id": 4
     }
   ],
   "place": [
@@ -51,24 +43,50 @@
   ],
   "room": [
     {
-      "placeid": 1,
-      "hostid": 4,
-      "roomname": "11",
-      "maxpeople": "2",
-      "date": "0000. 00. 00. 오전 0:00:00",
+      "placeid": 0,
+      "hostid": 1,
+      "roomname": "맥도날드 먹을사람",
+      "maxpeople": "3",
+      "date": "2023-10-18T13:00",
       "id": 1
+    },
+    {
+      "placeid": 1,
+      "hostid": 1,
+      "roomname": "우동 먹자",
+      "maxpeople": "4",
+      "date": "2023-10-18T13:30",
+      "id": 2
+    },
+    {
+      "placeid": 0,
+      "hostid": 2,
+      "roomname": "빅맥 먹고싶다",
+      "maxpeople": "3",
+      "date": "2023-10-18T14:30",
+      "id": 3
     }
   ],
   "joiner": [
     {
       "roomid": 1,
-      "userid": 4,
+      "userid": 1,
       "id": 1
     },
     {
-      "userid": 2,
-      "roomid": 1,
+      "roomid": 2,
+      "userid": 1,
       "id": 2
+    },
+    {
+      "userid": 2,
+      "roomid": 2,
+      "id": 3
+    },
+    {
+      "roomid": 3,
+      "userid": 2,
+      "id": 4
     }
   ]
 }

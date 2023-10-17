@@ -5,6 +5,7 @@ import { JSON_SERVER } from '../JsonConfig';
 
 function Room({ id, roomname, placeid, date, maxpeople }) {
   const [place, setPlace] = useState([]);
+  const [placeName, setPlaceName] = useState('');
   const [joiner, setJoiner] = useState([]);
   const [joinCompleted, setJoinCompleted] = useState(false);
   const [fullRoom, setFullRoom] = useState(false);
@@ -15,6 +16,7 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
   async function fetchPlaceData() {
     const array = await axios.get(JSON_SERVER + `/place?id=${placeid}`);
     setPlace(array.data);
+    setPlaceName(array.data[0].Placename);
     fetchJoinerData();
   }
 
@@ -75,6 +77,7 @@ function Room({ id, roomname, placeid, date, maxpeople }) {
     <div className="room-item-container">
       <div className="room-info-container">
         <div className="room-name">{roomname}</div>
+        <div className="place-id">{placeName}</div>
         <div className="place-id">{findAddress()}</div>
         <div className="room-date">{date}</div>
       </div>
