@@ -16,7 +16,7 @@ function ETMain() {
   // 더미데이터
 
   return (
-    <div className="ETMain">
+    <>
       <ETHeader />
       <hr />
       <ImageCarousel images={images}></ImageCarousel>
@@ -27,7 +27,7 @@ function ETMain() {
       </div>
       <div className="dumy"></div>
       <ETNav />
-    </div>
+    </>
   );
 }
 
