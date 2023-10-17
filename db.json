@@ -12,7 +12,7 @@
       "name": "해인스",
       "nickname": "인스님",
       "username": "haein121",
-      "password": "1234qwer",
+      "password": "haein121",
       "admin": false,
       "id": 2
     },
@@ -49,6 +49,26 @@
       "GridY": 127.109279
     }
   ],
-  "room": [],
-  "joiner": []
+  "room": [
+    {
+      "placeid": 1,
+      "hostid": 4,
+      "roomname": "11",
+      "maxpeople": "2",
+      "date": "0000. 00. 00. 오전 0:00:00",
+      "id": 1
+    }
+  ],
+  "joiner": [
+    {
+      "roomid": 1,
+      "userid": 4,
+      "id": 1
+    },
+    {
+      "userid": 2,
+      "roomid": 1,
+      "id": 2
+    }
+  ]
 }

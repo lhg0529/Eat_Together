@@ -66,6 +66,7 @@ function ETRVInfo() {
         );
       })}
       <hr />
+      <div className="dumy"></div>
       <ETNav />
     </div>
   );

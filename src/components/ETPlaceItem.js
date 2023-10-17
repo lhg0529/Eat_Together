@@ -5,7 +5,7 @@ function ETPlaceItem({ image, placename, address }) {
   return (
     <div className="place-item-container">
       <div className="place-image-container">
-        <img src={image} alt="cat" />
+        <img src={image} alt="tumbnail" />
       </div>
       <div>
         <h3 className="place-name">{placename}</h3>

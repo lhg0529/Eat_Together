@@ -1,6 +1,5 @@
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
-import Demo from './pages/Demo';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ETMain from './pages/ETMain';
@@ -35,7 +34,6 @@ function App() {
           <Route path="/ETRVInfo" element={<ETRVInfo />}></Route>
           <Route path="/Roominfomation/:key1" element={<RoomInfo />}></Route>
         </Routes>
-        <div className="dumy"></div>
       </div>
     </div>
   );

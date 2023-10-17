@@ -88,6 +88,7 @@ function RoomInfo() {
           );
         })}
       </div>
+      <div className="dumy"></div>
       <ETNav />
     </div>
   );

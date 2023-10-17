@@ -5,14 +5,13 @@ import ETNav from '../components/ETNav';
 import ImageCarousel from '../components/ImageCarousel';
 
 // 이미지 임포트
-import cat from '../img/cat.jpg';
-import cat2 from '../img/cat2.jpg';
-import cat3 from '../img/cat3.jpg';
+import MDEvent from '../img/McdonaldEvent.png';
+import udongEvent from '../img/udongEvent.png';
 import RoomList from '../components/RoomList';
 
 function ETMain() {
   // 프롭으로 넘겨주기 위한 배열
-  const images = [cat, cat2, cat3];
+  const images = [MDEvent, udongEvent];
 
   // 더미데이터
 
@@ -26,6 +25,7 @@ function ETMain() {
         <h3 className="room-list jejugothic">현재 방 목록</h3>
         <RoomList />
       </div>
+      <div className="dumy"></div>
       <ETNav />
     </div>
   );

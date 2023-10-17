@@ -6,13 +6,11 @@ import Kakaomap from '../components/Kakaomap';
 import axios from 'axios';
 import { JSON_SERVER } from '../JsonConfig';
 import '../styles/ETSearchplace.css';
-import Room from '../components/Room';
 import CreateRoom from '../components/CreateRoom';
 import RoomList from '../components/RoomList';
 
 function ETSearchplace() {
   const placeID = useParams().key1;
-  const [rooms, setRooms] = useState([]);
   const [thisPlace, setThisPlace] = useState({});
   const [isCreateRoom, setIsCreateRoom] = useState(false);
   // const roomListElement = useRef();
@@ -65,6 +63,7 @@ function ETSearchplace() {
           </div>
         </div>
       </div>
+      <div className="dumy"></div>
       <ETNav></ETNav>
     </div>
   );

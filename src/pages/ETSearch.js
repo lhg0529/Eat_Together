@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ETHeader from '../components/ETHeader';
 import '../styles/ETSearch.css';
 import cat from '../img/cat.jpg';
+import McDonaldImage from '../img/McdonaldLogo.png';
+import Udong from '../img/UdongLogo.png';
 import ETPlaceItem from '../components/ETPlaceItem';
 import ETNav from '../components/ETNav';
 import { Link } from 'react-router-dom';
@@ -67,13 +69,14 @@ function ETSearch() {
           <Link key={i} to={`./${e.id}`}>
             <ETPlaceItem
               key={i}
-              image={cat}
+              image={e.Placename === '오리역 맥도날드' ? McDonaldImage : Udong}
               placename={e.Placename}
               address={e.Address}
             />
           </Link>
         );
       })}
+      <div className="dumy"></div>
       <ETNav />
     </div>
   );
