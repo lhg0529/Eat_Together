@@ -19,6 +19,7 @@
   justify-content: center;
   display: flex;
   align-items: center;
+  cursor: default;
 }
 
 .create-room {
@@ -27,6 +28,10 @@
   height: 40px;
   background-color: tomato;
   border-radius: 20px;
+  cursor: pointer;
+}
+.create-room:hover {
+  background-color: rgb(255, 129, 107);
 }
 .create-room-text {
   color: white;

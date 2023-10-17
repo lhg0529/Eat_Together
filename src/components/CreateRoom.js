@@ -48,7 +48,14 @@ function CreateRoom({ placeid, setIsCreateRoom, userid }) {
       <div className="modal-input-container">
         <div className="modal-header">
           <div>방 만들기</div>
-          <div>X</div>
+          <div
+            className="modal-close-btn"
+            onClick={() => {
+              setIsCreateRoom(false);
+            }}
+          >
+            X
+          </div>
         </div>
         <div className="modal-body">
           <div className="modal-body-input-name">방 이름</div>

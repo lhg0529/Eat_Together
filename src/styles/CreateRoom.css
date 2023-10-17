@@ -16,6 +16,10 @@
   font-size: 30px;
   display: flex;
   justify-content: space-between;
+  cursor: default;
+}
+.modal-close-btn {
+  cursor: pointer;
 }
 .modal-body {
   margin: 10px 0;
@@ -35,4 +39,8 @@
   background-color: tomato;
   border-radius: 15px;
   color: white;
+  cursor: pointer;
+}
+.modal-create-room-btn:hover {
+  background-color: rgb(255, 129, 107);
 }

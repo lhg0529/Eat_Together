@@ -3,6 +3,7 @@
   margin: 10px;
   border-radius: 10px;
   display: flex;
+  box-shadow: 0.5px 0.5px 2px #ccc;
 }
 .place-name {
   font-size: 25px;
