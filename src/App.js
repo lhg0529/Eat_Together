@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import Login from './pages/Login';
@@ -9,31 +8,24 @@ import ETSearchplace from './pages/ETSearchplace';
 import MyPage from './pages/MyPage';
 import ETRVInfo from './pages/ETRVInfo';
 import RoomInfo from './pages/RoomInfo';
+import { useEffect } from 'react';
 
 function App() {
-  const [dbData, setDbData] = useState(null);
   const localUser = JSON.parse(localStorage.getItem('user'));
   const navigate = useNavigate();
 
   useEffect(() => {
-    
-       // db.json 데이터 불러오기 netlify에서 db.json 사용하기 위해서
-       fetch('/db.json')
-       .then(response => response.json())
-       .then(data => setDbData(data))
-       .catch(error => console.error('Error fetching data: ', error));
-    
     if (localUser) {
       navigate('/ETMain');
     } else {
       navigate('/Login');
     }
-  }, [navigate, localUser]);
+  }, []);
   return (
     <div className="App">
       <div className="inner">
         <Routes>
-        <Route path="/Login" element={<Login dbData={dbData} />}></Route>
+          <Route path="/Login" element={<Login></Login>}></Route>
           <Route path="/Register" element={<Register></Register>}></Route>
           <Route path="/ETMain" element={<ETMain />}></Route>
           <Route path="/ETSearch" element={<ETSearch />}></Route>

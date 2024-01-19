@@ -8,7 +8,7 @@ import { JSON_SERVER } from '../JsonConfig';
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {

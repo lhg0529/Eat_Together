@@ -1,3 +1,5 @@
-const SERVER_URL = 'http://localhost';
-const SERVER_PORT = '3001';
-export const JSON_SERVER = `${SERVER_URL}:${SERVER_PORT}`;
+const SERVER_URL = process.env.NODE_ENV === 'development'
+  ? 'http://localhost:3000'
+  : 'https://winter-ten-calf.glitch.me';
+
+export const JSON_SERVER = SERVER_URL;
