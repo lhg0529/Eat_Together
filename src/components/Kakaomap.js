@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 function Kakaomap(props) {
   useEffect(() => {
@@ -6,7 +6,7 @@ function Kakaomap(props) {
     if (props.address && props.placeName && props.gridx && props.gridy) {
       // Kakao Map API 스크립트 비동기로 로드
       const script = document.createElement('script');
-      script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=a9ac4451e48e7caff6cfba9ac132754f&libraries=services&autoload=false`;
+      script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=ffa4713985f4aee472a96021878c581a&libraries=services&autoload=false`;
       script.async = true;
       document.head.appendChild(script);
 
